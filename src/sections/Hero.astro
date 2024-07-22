@@ -1,0 +1,40 @@
+---
+import { Button } from 'free-astro-components'
+---
+
+<section
+  class="flex items-center min-h-dvh bg-gradient-to-b from-primary/20 from-25% to-black/50 text-white"
+>
+  <div class="container flex flex-col gap-16 text-center">
+    <div class="flex flex-col gap-4">
+      <h1
+        class="text-white text-3xl md:text-4xl lg:text-5xl text-balance font-light max-w-[24ch] mx-auto [&>strong]:font-bold"
+      >
+        A collection of <strong>Free Astro components</strong>
+      </h1>
+      <p class="text-gray-200 lg:text-lg">
+        You can use these components to build your Astro projects faster.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-4">
+      <div>
+        <Button href="/components" variant="secondary" label="Get started" />
+      </div>
+      <div>
+        <code
+          class="inline-block bg-dark/50 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+        >
+          npm install free-astro-components
+        </code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ac-btn {
+    --ac-btn-border-radius: var(--ac-rounded-full);
+    @apply min-w-48;
+  }
+</style>

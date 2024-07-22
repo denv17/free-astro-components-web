@@ -1,0 +1,425 @@
+---
+import { icons } from '../data/icons.ts'
+import { iconsCategories } from '../data/icons-categories.ts'
+import { Button, Icon, Checkbox, Radio, Switch } from 'free-astro-components'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <section
+      class="flex items-center min-h-svh bg-gradient-to-b from-primary/20 from-25% to-black/50"
+    >
+      <div class="container flex flex-col gap-8">
+        <h1
+          class="text-white text-3xl md:text-4xl lg:text-5xl text-balance font-light max-w-[24ch] [&>strong]:font-bold"
+        >
+          <strong>Components</strong>
+        </h1>
+        <div class="flex flex-col gap-4 max-w-[65ch]">
+          <p class="text-gray-200 lg:text-lg">
+            Explore my collection of free Astro components designed to enhance
+            your projects.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <div>
+            <Button
+              icon="arrow-down"
+              href="#components"
+              label="Explore Components"
+            />
+          </div>
+          <div>
+            <code
+              class="inline-block bg-dark/50 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+            >
+              npm install free-astro-components
+            </code>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="components" class="py-16 lg:py-32">
+      <div class="container flex flex-col gap-8">
+        <h2
+          class="text-white text-2xl md:text-3xl lg:text-4xl font-bold text-balance max-w-[24ch]"
+        >
+          Icons
+        </h2>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-primary">Code</p>
+
+          <div>
+            <code
+              class="inline-block bg-dark/50 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+            >
+              {`import { Icon } from 'free-astro-components'`}
+              <br />
+              <br />
+              {`<Icon icon="icon-name" class="icon-classes" />`}
+            </code>
+          </div>
+        </div>
+
+        <div>
+          <ul class="flex flex-col gap-8">
+            {
+              iconsCategories.map((category) => {
+                const categoryIcons = icons.filter(
+                  (icon) => icon.category === category
+                )
+
+                return categoryIcons.length > 0 ? (
+                  <li class="flex flex-col gap-4">
+                    <h3 class="text-gray-200 text-xl md:text-2xl font-light capitalize">
+                      {category}
+                    </h3>
+                    <ul class="icons-list">
+                      {categoryIcons.map((icon) => (
+                        <li class="flex flex-col gap-2 items-center bg-primary/5 border border-primary/30 rounded-2xl p-4">
+                          <Icon icon={icon.name} class="w-8 h-8 text-primary" />
+                          <span class="text-gray-200 text-sm">{icon.name}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : null
+              })
+            }
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gray-500 py-16 lg:py-32">
+      <div class="container flex flex-col gap-8">
+        <h2
+          class="text-white text-2xl md:text-3xl lg:text-4xl font-bold text-balance max-w-[24ch]"
+        >
+          Buttons
+        </h2>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-primary">Code</p>
+
+          <div>
+            <code
+              class="inline-block bg-dark/50 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+            >
+              {`import { Button } from 'free-astro-components'`}
+              <br />
+              <br />
+              {
+                `<Button size="medium" icon="star" variant="primary" label="Button primary" />`
+              }
+            </code>
+          </div>
+        </div>
+
+        <div>
+          <ul class="flex flex-col gap-8">
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Primary
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <li>
+                  <Button variant="primary" label="Button primary" />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    variant="primary"
+                    label="Primary with icon"
+                  />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    iconPosition="left"
+                    variant="primary"
+                    label="Primary with icon left"
+                  />
+                </li>
+                <li>
+                  <Button variant="primary" label="Primary disabled" disabled />
+                </li>
+                <li>
+                  <Button icon="star" variant="primary" />
+                </li>
+                <li>
+                  <Button
+                    size="small"
+                    variant="primary"
+                    label="Primary small"
+                  />
+                </li>
+              </ul>
+            </li>
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Secondary
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <li>
+                  <Button variant="secondary" label="Button secondary" />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    variant="secondary"
+                    label="Secondary with icon"
+                  />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    iconPosition="left"
+                    variant="secondary"
+                    label="Secondary with icon left"
+                  />
+                </li>
+                <li>
+                  <Button
+                    variant="secondary"
+                    label="Secondary disabled"
+                    disabled
+                  />
+                </li>
+                <li>
+                  <Button icon="star" variant="secondary" />
+                </li>
+                <li>
+                  <Button
+                    size="small"
+                    variant="secondary"
+                    label="Secondary small"
+                  />
+                </li>
+              </ul>
+            </li>
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Dark
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <li>
+                  <Button variant="dark" label="Button dark" />
+                </li>
+                <li>
+                  <Button icon="star" variant="dark" label="Dark with icon" />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    iconPosition="left"
+                    variant="dark"
+                    label="Dark with icon left"
+                  />
+                </li>
+                <li>
+                  <Button variant="dark" label="Dark disabled" disabled />
+                </li>
+                <li>
+                  <Button icon="star" variant="dark" />
+                </li>
+                <li>
+                  <Button size="small" variant="dark" label="Dark small" />
+                </li>
+              </ul>
+            </li>
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Light
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <li>
+                  <Button variant="light" label="Button light" />
+                </li>
+                <li>
+                  <Button icon="star" variant="light" label="Light with icon" />
+                </li>
+                <li>
+                  <Button
+                    icon="star"
+                    iconPosition="left"
+                    variant="light"
+                    label="Light with icon left"
+                  />
+                </li>
+                <li>
+                  <Button variant="light" label="Light disabled" disabled />
+                </li>
+                <li>
+                  <Button icon="star" variant="light" />
+                </li>
+                <li>
+                  <Button size="small" variant="light" label="Light small" />
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-32">
+      <div class="container flex flex-col gap-8">
+        <h2
+          class="text-gray-500 text-2xl md:text-3xl lg:text-4xl font-bold text-balance max-w-[24ch]"
+        >
+          Controls
+        </h2>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-primary">Code</p>
+
+          <div>
+            <code
+              class="inline-block bg-dark/90 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+            >
+              {
+                `import { Checkbox, Radio, Switch } from 'free-astro-components'`
+              }
+              <br />
+              <br />
+              {`<Checkbox label="Checkbox" />`}
+              <br />
+              {`<Radio label="Radio" />`}
+              <br />
+              {`<Switch label="Switch" />`}
+            </code>
+          </div>
+        </div>
+
+        <div>
+          <ul class="flex flex-col gap-8">
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-400 text-xl md:text-2xl font-light capitalize"
+              >
+                Checkbox
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <li>
+                  <Checkbox label="Checkbox" />
+                </li>
+                <li>
+                  <Checkbox label="Checkbox checked" checked />
+                </li>
+                <li>
+                  <Checkbox label="Checkbox disabled" disabled />
+                </li>
+                <li>
+                  <Checkbox
+                    label="Checkbox checked disabled"
+                    checked
+                    disabled
+                  />
+                </li>
+                <li>
+                  <Checkbox error label="Checkbox error" />
+                </li>
+              </ul>
+            </li>
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Radiobutton
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <ul class="flex flex-wrap gap-4">
+                  <li>
+                    <Radio label="Radio" />
+                  </li>
+                  <li>
+                    <Radio label="Radiobutton checked" checked />
+                  </li>
+                  <li>
+                    <Radio label="Radiobutton disabled" disabled />
+                  </li>
+                  <li>
+                    <Radio
+                      label="Radiobutton checked disabled"
+                      checked
+                      disabled
+                    />
+                  </li>
+                  <li>
+                    <Radio error label="Radiobutton error" />
+                  </li>
+                </ul>
+              </ul>
+            </li>
+            <li class="flex flex-col gap-4">
+              <h3
+                class="text-gray-200 text-xl md:text-2xl font-light capitalize"
+              >
+                Switch
+              </h3>
+              <ul class="flex flex-wrap gap-4">
+                <ul class="flex flex-wrap gap-4">
+                  <li>
+                    <Switch label="Switch" />
+                  </li>
+                  <li>
+                    <Switch label="Switch On" checked />
+                  </li>
+                  <li>
+                    <Switch label="Switch  disabled" disabled />
+                  </li>
+                  <li>
+                    <Switch label="Switch On disabled" checked disabled />
+                  </li>
+                </ul>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt-16 lg:py-32">
+      <div class="container flex flex-col gap-8">
+        <h2
+          class="text-white text-2xl md:text-3xl lg:text-4xl font-light text-balance max-w-[24ch] [&>strong]:font-bold"
+        >
+          Coming Soon: <strong>More Components</strong>
+        </h2>
+        <div class="flex flex-col gap-4 max-w-[65ch]">
+          <p class="text-gray-200 lg:text-lg">
+            I’m continuously working on expanding my collection to include even
+            more components. Stay tuned for upcoming additions that will further
+            enhance your Astro projects.
+          </p>
+        </div>
+        <div>
+          <Button
+            variant="secondary"
+            icon="arrow-up"
+            href="#components"
+            label="Explore Components"
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .icons-list {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+</style>
