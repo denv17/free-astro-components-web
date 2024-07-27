@@ -19,7 +19,7 @@
     "typescript": "^5.5.3"
   },
   "devDependencies": {
-    "free-astro-components": "^0.0.26",
+    "free-astro-components": "^0.0.29",
     "prettier": "^3.3.3"
   }
 }
