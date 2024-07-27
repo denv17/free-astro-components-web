@@ -9,6 +9,7 @@ import {
   Switch,
   Input,
   Textarea,
+  Select,
 } from 'free-astro-components'
 import Layout from '../layouts/Layout.astro'
 ---
@@ -547,8 +548,8 @@ import Layout from '../layouts/Layout.astro'
             <li>
               <Textarea
                 label="Textarea label"
-                placeholder="Input placeholder"
-                helperText="Input helper text"
+                placeholder="Textarea placeholder"
+                helperText="Textarea helper text"
               />
             </li>
             <li>
@@ -607,6 +608,101 @@ import Layout from '../layouts/Layout.astro'
                 label="Textarea error"
                 placeholder="Textarea placeholder"
                 helperText="Textarea helper text"
+                status="error"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 lg:py-32">
+      <div class="container flex flex-col gap-8">
+        <h2
+          class="text-gray-500 text-2xl md:text-3xl lg:text-4xl font-bold text-balance max-w-[24ch]"
+        >
+          Selects
+        </h2>
+
+        <div class="flex flex-col gap-2">
+          <p class="text-primary">Code</p>
+
+          <div>
+            <code
+              class="inline-block bg-dark/90 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
+            >
+              {`import { Select } from 'free-astro-components'`}
+              <br />
+              <br />
+              {
+                `<Select label="Select label" placeholder="Select placeholder" helperText="Select helper text" />`
+              }
+            </code>
+          </div>
+        </div>
+
+        <div>
+          <ul
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+          >
+            <li>
+              <Select
+                label="Select label"
+                placeholder="Select placeholder"
+                helperText="Select helper text"
+              />
+            </li>
+            <li>
+              <Select
+                label="Select label"
+                placeholder="Select placeholder"
+                options={[
+                  { value: 'Option 1', label: 'Option 1' },
+                  { value: 'Option 2', label: 'Option 2', selected: true },
+                  { value: 'Option 3', label: 'Option 3' },
+                ]}
+                helperText="Select helper text"
+              />
+            </li>
+            <li>
+              <Select
+                label="Select label"
+                placeholder="Select placeholder"
+                helperText="Select helper text"
+                disabled
+              />
+            </li>
+            <li>
+              <Select
+                label="Select label"
+                placeholder="Select placeholder"
+                options={[
+                  { value: 'Option 1', label: 'Option 1' },
+                  { value: 'Option 2', label: 'Option 2', selected: true },
+                  { value: 'Option 3', label: 'Option 3' },
+                ]}
+                helperText="Select helper text"
+                disabled
+              />
+            </li>
+            <li>
+              <Select
+                label="Select success"
+                placeholder="Select placeholder"
+                options={[
+                  { value: 'Option 1', label: 'Option 1' },
+                  { value: 'Option 2', label: 'Option 2', selected: true },
+                  { value: 'Option 3', label: 'Option 3' },
+                ]}
+                helperText="Select helper text"
+                status="success"
+              />
+            </li>
+            <li>
+              <Select
+                label="Select error"
+                placeholder="Select placeholder"
+                helperText="Select helper text"
                 status="error"
               />
             </li>
