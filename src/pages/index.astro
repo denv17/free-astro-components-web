@@ -3,12 +3,31 @@ import Layout from '../layouts/Layout.astro'
 import Hero from '../sections/Hero.astro'
 import Intro from '../sections/Intro.astro'
 import CTA from '../sections/CTA.astro'
+import Code from '../components/Code.astro'
+import { Button } from 'free-astro-components'
 ---
 
 <Layout title="Free Astro Components">
   <main>
-    <Hero />
-    <Intro />
-    <CTA />
+    <Hero
+      align="center"
+      title="A collection of <strong>Free Astro Components</strong>"
+      description="You can use these components to build your Astro projects faster."
+    >
+      <div>
+        <Button href="/components" label="Get started" />
+      </div>
+      <div>
+        <Code>npm install free-astro-components</Code>
+      </div>
+    </Hero>
   </main>
+  <Intro />
+  <CTA
+    align="center"
+    title="Ready to <strong>Get Started?</strong>"
+    description="Explore my collection of free Astro components and start building your next project today."
+  >
+    <Button href="/components" label="Explore Components" />
+  </CTA>
 </Layout>

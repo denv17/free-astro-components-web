@@ -1,37 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Hero from '../sections/Hero.astro'
 import { Button } from 'free-astro-components'
 ---
 
 <Layout title="Free Astro Components - Documentation">
   <main>
-    <section
-      class="flex items-center min-h-svh bg-gradient-to-b from-primary/20 from-25% to-black/50"
+    <Hero
+      title="Documentation <strong>Under Construction</strong>"
+      description="I’m currently working on the documentation for my free Astro components. Please check back soon for detailed guides and information to help you make the most out of these components.<br><br>Thank you for your patience and understanding!"
     >
-      <div class="container flex flex-col gap-8">
-        <h1
-          class="text-white text-3xl md:text-4xl lg:text-5xl text-balance font-light max-w-[24ch] [&>strong]:font-bold"
-        >
-          Documentation <strong>Under Construction</strong>
-        </h1>
-        <div class="flex flex-col gap-4 max-w-[65ch]">
-          <p class="text-gray-200 lg:text-lg">
-            I’m currently working on the documentation for my free Astro
-            components. Please check back soon for detailed guides and
-            information to help you make the most out of these components.
-          </p>
-          <p class="text-gray-200 lg:text-lg">
-            Thank you for your patience and understanding!
-          </p>
-        </div>
-        <div>
-          <Button
-            icon="arrow-right"
-            href="/components"
-            label="Explore Components"
-          />
-        </div>
+      <div>
+        <Button
+          icon="arrow-right"
+          href="/components"
+          label="Explore Components"
+        />
       </div>
-    </section>
+    </Hero>
   </main>
 </Layout>

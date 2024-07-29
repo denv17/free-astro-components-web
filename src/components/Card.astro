@@ -8,24 +8,15 @@ interface Props {
   description?: string
 }
 
-const { type, icon, title, description } = Astro.props
-const typeClasses = {
-  primary: 'bg-primary text-white',
-  secondary: 'bg-secondary text-dark',
-  light: 'bg-white text-dark',
-}[type]
+const { icon, title, description } = Astro.props
 
-const cardClasses = ['flex flex-col gap-8 h-full rounded-3xl p-8', typeClasses]
+const cardClasses = [
+  'flex flex-col gap-8 h-full bg-gradient-to-r from-primary/10 to-secondary/10 rounded-3xl p-8',
+]
   .filter(Boolean)
   .join(' ')
 
-const iconColor = {
-  primary: 'text-secondary',
-  secondary: 'text-dark',
-  light: 'text-primary',
-}[type]
-
-const iconClasses = ['w-24 h-24', iconColor].filter(Boolean).join(' ')
+const iconClasses = ['w-20 h-20 text-primary'].filter(Boolean).join(' ')
 ---
 
 <article class={cardClasses}>
@@ -33,7 +24,7 @@ const iconClasses = ['w-24 h-24', iconColor].filter(Boolean).join(' ')
     <Icon icon={icon} class={iconClasses} />
   </div>
   <div class="flex flex-col gap-4">
-    <h3 class="text-3xl font-bold">{title}</h3>
-    <p class="flex-1">{description}</p>
+    <h3 class="text-neutral-700 text-2xl lg:text-3xl">{title}</h3>
+    <p class="flex-1 text-neutral-500">{description}</p>
   </div>
 </article>

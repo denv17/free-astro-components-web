@@ -5,10 +5,10 @@ export default {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      black: '#000',
-      white: '#fff',
-      primary: 'rgb(3, 103, 252)',
-      secondary: 'rgb(210, 248, 1)',
+      primary: 'rgb(var(--ac-primary), <alpha-value>)',
+      secondary: 'rgb(var(--ac-secondary), <alpha-value>)',
+      white: 'rgb(255, 255, 255)',
+      black: 'rgb(0, 0, 0)',
       dark: 'rgb(22, 22, 22)',
       gray: {
         100: 'rgb(232, 232, 232)',
@@ -16,6 +16,15 @@ export default {
         300: 'rgb(139, 139, 139)',
         400: 'rgb(92, 92, 92)',
         500: 'rgb(45, 45, 45)',
+      },
+      neutral: {
+        100: 'rgb(var(--color-100), <alpha-value>)',
+        200: 'rgb(var(--color-200), <alpha-value>)',
+        300: 'rgb(var(--color-300), <alpha-value>)',
+        400: 'rgb(var(--color-400), <alpha-value>)',
+        500: 'rgb(var(--color-500), <alpha-value>)',
+        600: 'rgb(var(--color-600), <alpha-value>)',
+        700: 'rgb(var(--color-700), <alpha-value>)',
       },
     },
     container: {
@@ -25,7 +34,36 @@ export default {
     fontFamily: {
       sans: ['Poppins', 'sans-serif'],
     },
-    extend: {},
+    extend: {
+      animation: {
+        'move-circle': 'move-circle 10s linear infinite',
+        'move-circle-reverse': 'move-circle-reverse 6s linear infinite',
+      },
+      blur: {
+        '2.5xl': '50px',
+        '4xl': '80px',
+        '5xl': '96px',
+        '6xl': '112px',
+      },
+      keyframes: {
+        'move-circle': {
+          '0%': {
+            transform: 'rotate(0deg) translateY(10%) rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(360deg) translateY(10%) rotate(-360deg)',
+          },
+        },
+        'move-circle-reverse': {
+          '0%': {
+            transform: 'rotate(0deg) translateY(14%) rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(-360deg) translateY(15%) rotate(360deg)',
+          },
+        },
+      },
+    },
   },
   plugins: [],
 }

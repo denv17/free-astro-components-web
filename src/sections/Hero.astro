@@ -1,40 +1,64 @@
 ---
-import { Button } from 'free-astro-components'
+import HeroGradient from '../components/HeroGradient.astro'
+
+interface Props {
+  title?: string
+  description?: string
+  align?: 'center' | 'left'
+}
+
+const { title, description, align = 'left' } = Astro.props
 ---
 
 <section
-  class="flex items-center min-h-dvh bg-gradient-to-b from-primary/20 from-25% to-black/50 text-white"
+  class="relative h-svh text-neutral-700 px-4 pt-24 pb-8 md:px-8 overflow-clip"
 >
-  <div class="container flex flex-col gap-16 text-center">
-    <div class="flex flex-col gap-4">
-      <h1
-        class="text-white text-3xl md:text-4xl lg:text-5xl text-balance font-light max-w-[24ch] mx-auto [&>strong]:font-bold"
-      >
-        A collection of <strong>Free Astro components</strong>
-      </h1>
-      <p class="text-gray-200 lg:text-lg">
-        You can use these components to build your Astro projects faster.
-      </p>
-    </div>
+  <div
+    class="relative flex items-center w-full h-full bg-gradient-to-b from-primary/5 via-primary/0 via-70% to-secondary/5 rounded-3xl overflow-clip"
+  >
+    <HeroGradient />
 
-    <div class="flex flex-col gap-4">
-      <div>
-        <Button href="/components" variant="secondary" label="Get started" />
+    <div
+      class:list={[
+        'relative container flex flex-col gap-16',
+        align === 'center' ? 'text-center' : '',
+      ]}
+    >
+      <div class="flex flex-col gap-8">
+        {
+          title && (
+            <h1
+              class:list={[
+                'text-[8vw] sm:text-[7.5vw] md:text-[7vw] lg:text-[6vw] xl:text-[5vw] leading-none [&>strong]:font-medium',
+                align === 'center' ? 'mx-auto' : '',
+              ]}
+              set:html={title}
+            />
+          )
+        }
+        {
+          description && (
+            <p
+              class:list={[
+                'text-neutral-500 lg:text-lg',
+                align === 'center' ? 'mx-auto' : '',
+              ]}
+              set:html={description}
+            />
+          )
+        }
       </div>
-      <div>
-        <code
-          class="inline-block bg-dark/50 text-gray-200 text-sm border border-gray-400/50 rounded-lg px-5 py-3"
-        >
-          npm install free-astro-components
-        </code>
+
+      <div class="flex flex-col gap-4">
+        <slot />
       </div>
     </div>
   </div>
-</section>
 
-<style>
-  .ac-btn {
-    --ac-btn-border-radius: var(--ac-rounded-full);
-    @apply min-w-48;
-  }
-</style>
+  <style>
+    .ac-btn {
+      --ac-btn-border-radius: var(--ac-rounded-full);
+      @apply min-w-48;
+    }
+  </style>
+</section>

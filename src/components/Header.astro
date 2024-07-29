@@ -1,9 +1,10 @@
 ---
 import { Icon } from 'free-astro-components'
+import ThemeSwitch from './ThemeSwitch.astro'
 ---
 
 <header
-  class="fixed inset-x-0 top-0 bg-dark/75 text-white py-4 lg:py-6 border-b border-gray-500/50 z-10"
+  class="fixed inset-x-0 top-0 bg-neutral-100/60 text-neutral-700 py-4 border-b border-neutral-300/50 backdrop-blur-md z-10"
 >
   <div class="container flex justify-between items-center gap-8">
     <a
@@ -11,22 +12,25 @@ import { Icon } from 'free-astro-components'
       href="/"
       aria-label="Free Astro components"
     >
-      <Icon icon="star" class="w-10 h-10" />
+      <Icon icon="star" class="w-8 h-8" />
     </a>
 
     <nav>
       <ul class="flex items-center gap-8">
         <li>
           <a
-            class="text-white hover:text-primary transition duration-300 ease-in-out"
+            class="text-sm hover:text-primary transition duration-300 ease-in-out"
             href="/documentation">Documentation</a
           >
         </li>
         <li class="hidden lg:block">
           <a
-            class="text-white hover:text-primary transition duration-300 ease-in-out"
+            class="text-sm hover:text-primary transition duration-300 ease-in-out"
             href="/components">Components</a
           >
+        </li>
+        <li class="">
+          <ThemeSwitch />
         </li>
       </ul>
     </nav>

@@ -1,0 +1,28 @@
+---
+import Code from '../components/Code.astro'
+
+interface Props {
+  id?: string
+  title?: string
+}
+
+const { id, title } = Astro.props
+---
+
+<section id={id} class="py-16 lg:py-32">
+  <div class="container flex flex-col gap-8">
+    {title && <h2 class="text-neutral-700 text-3xl lg:text-4xl">{title}</h2>}
+
+    <div class="flex flex-col gap-2">
+      <p class="text-primary">Code:</p>
+
+      <div>
+        <slot name="code" />
+      </div>
+    </div>
+
+    <div>
+      <slot />
+    </div>
+  </div>
+</section>
