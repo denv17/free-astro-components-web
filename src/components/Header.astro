@@ -1,10 +1,11 @@
 ---
 import { Icon } from 'free-astro-components'
 import ThemeSwitch from './ThemeSwitch.astro'
+import Hamburguer from './Hamburguer.astro'
 ---
 
 <header
-  class="fixed inset-x-0 top-0 bg-neutral-100/60 text-neutral-700 py-4 border-b border-neutral-300/50 backdrop-blur-md z-10"
+  class="fixed inset-x-0 top-0 bg-neutral-100/60 text-neutral-700 py-4 border-b border-neutral-300/50 backdrop-blur-md z-20"
 >
   <div class="container flex justify-between items-center gap-8">
     <a
@@ -32,7 +33,28 @@ import ThemeSwitch from './ThemeSwitch.astro'
         <li class="">
           <ThemeSwitch />
         </li>
+        <li class="hidden">
+          <Hamburguer />
+        </li>
       </ul>
     </nav>
   </div>
 </header>
+
+<script>
+  import { DOMLoaded } from '../ts/utils'
+
+  DOMLoaded(() => {
+    const body = document.querySelector('body') as HTMLElement
+    const hamburguer = document.querySelector(
+      '.js-hamburguer'
+    ) as HTMLButtonElement
+    const nav = document.querySelector('.js-nav') as HTMLElement
+
+    hamburguer.addEventListener('click', () => {
+      hamburguer.classList.toggle('is-open')
+      nav.classList.toggle('-translate-x-full')
+      body.classList.toggle('overflow-hidden')
+    })
+  })
+</script>

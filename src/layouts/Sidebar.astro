@@ -1,0 +1,36 @@
+---
+import Nav from '../components/Nav.astro'
+import NavItem from '../components/NavItem.astro'
+import NavLink from '../components/NavLink.astro'
+
+const { class: className } = Astro.props
+---
+
+<aside
+  class:list={[
+    'js-nav fixed left-0 inset-y-0 -translate-x-full lg:translate-x-0 w-full lg:w-72 bg-neutral-100/60 backdrop-blur-md pt-16 z-10 transition-transform duration-300 ease-in-out',
+    className,
+  ]}
+>
+  <div
+    class="w-full h-full lg:border-r border-neutral-300/50 px-5 py-4 overflow-y-auto"
+  >
+    <Nav>
+      <NavItem title="Guide" open>
+        <NavLink href="/guide/installation" label="Installation" />
+        <NavLink href="/guide/colors" label="Colors" />
+        <NavLink href="/guide/customize-colors" label="Customize Colors" />
+      </NavItem>
+      <NavItem title="Components" open>
+        <NavLink href="/components/button" label="Button" />
+        <NavLink href="/components/checkbox" label="Checkbox" />
+        <NavLink href="/components/icon" label="Icon" />
+        <NavLink href="/components/input" label="Input" />
+        <NavLink href="/components/radio" label="Radio" />
+        <NavLink href="/components/select" label="Select" />
+        <NavLink href="/components/switch" label="Switch" />
+        <NavLink href="/components/textarea" label="Textarea" />
+      </NavItem>
+    </Nav>
+  </div>
+</aside>

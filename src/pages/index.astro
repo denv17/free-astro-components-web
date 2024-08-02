@@ -1,13 +1,18 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import { Button } from 'free-astro-components'
+import Code from '../components/Code.astro'
+import CTA from '../sections/CTA.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
 import Hero from '../sections/Hero.astro'
 import Intro from '../sections/Intro.astro'
-import CTA from '../sections/CTA.astro'
-import Code from '../components/Code.astro'
-import { Button } from 'free-astro-components'
+import Layout from '../layouts/Layout.astro'
+import Sidebar from '../layouts/Sidebar.astro'
 ---
 
 <Layout title="Free Astro Components">
+  <Sidebar class="lg:hidden" />
+  <Header />
   <main>
     <Hero
       align="center"
@@ -21,13 +26,14 @@ import { Button } from 'free-astro-components'
         <Code>npm install free-astro-components</Code>
       </div>
     </Hero>
+    <Intro />
+    <CTA
+      align="center"
+      title="Ready to <strong>Get Started?</strong>"
+      description="Explore my collection of free Astro components and start building your next project today."
+    >
+      <Button href="/components" label="Explore Components" />
+    </CTA>
   </main>
-  <Intro />
-  <CTA
-    align="center"
-    title="Ready to <strong>Get Started?</strong>"
-    description="Explore my collection of free Astro components and start building your next project today."
-  >
-    <Button href="/components" label="Explore Components" />
-  </CTA>
+  <Footer />
 </Layout>

@@ -1,10 +1,15 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Hero from '../sections/Hero.astro'
 import { Button } from 'free-astro-components'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Hero from '../sections/Hero.astro'
+import Layout from '../layouts/Layout.astro'
+import Sidebar from '../layouts/Sidebar.astro'
 ---
 
 <Layout title="Free Astro Components - Documentation">
+  <Sidebar class="lg:hidden" />
+  <Header />
   <main>
     <Hero
       title="Documentation <strong>Under Construction</strong>"
@@ -19,4 +24,5 @@ import { Button } from 'free-astro-components'
       </div>
     </Hero>
   </main>
+  <Footer />
 </Layout>

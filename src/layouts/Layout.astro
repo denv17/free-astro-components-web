@@ -1,7 +1,4 @@
 ---
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-
 interface Props {
   title: string
 }
@@ -23,45 +20,12 @@ const { title } = Astro.props
     <title>{title}</title>
   </head>
   <body>
-    <Header />
     <slot />
-    <Footer />
   </body>
 </html>
 
 <style is:global>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-  :root {
-    --ac-primary: 64, 93, 255;
-    --ac-secondary: 98, 251, 213;
-  }
-  .light,
-  :root,
-  [data-theme='light'] {
-    color-scheme: light;
-    background-color: #ffffff;
-    --color-100: 255, 255, 255;
-    --color-200: 232, 232, 232;
-    --color-300: 185, 185, 185;
-    --color-400: 139, 139, 139;
-    --color-500: 92, 92, 92;
-    --color-600: 45, 45, 45;
-    --color-700: 22, 22, 22;
-  }
-
-  .dark,
-  [data-theme='dark'] {
-    color-scheme: dark;
-    background-color: #0f0f0f;
-    --color-100: 22, 22, 22;
-    --color-200: 45, 45, 45;
-    --color-300: 92, 92, 92;
-    --color-400: 139, 139, 139;
-    --color-500: 185, 185, 185;
-    --color-600: 232, 232, 232;
-    --color-700: 255, 255, 255;
-  }
 
   html {
     @apply scroll-smooth;

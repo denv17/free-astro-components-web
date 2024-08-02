@@ -11,14 +11,19 @@ import {
   Textarea,
   Select,
 } from 'free-astro-components'
-import Layout from '../layouts/Layout.astro'
-import Hero from '../sections/Hero.astro'
+import Code from '../components/Code.astro'
 import Component from '../sections/Component.astro'
 import CTA from '../sections/CTA.astro'
-import Code from '../components/Code.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Hero from '../sections/Hero.astro'
+import Layout from '../layouts/Layout.astro'
+import Sidebar from '../layouts/Sidebar.astro'
 ---
 
 <Layout title="Free Astro Components - Components">
+  <Sidebar class="lg:hidden" />
+  <Header />
   <main>
     <Hero
       title="<strong>Components</strong>"
@@ -573,6 +578,7 @@ import Code from '../components/Code.astro'
       />
     </CTA>
   </main>
+  <Footer />
 </Layout>
 
 <style>
