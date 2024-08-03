@@ -37,17 +37,15 @@ import Sidebar from '../layouts/Sidebar.astro'
         />
       </div>
       <div>
-        <Code>npm install free-astro-components</Code>
+        <Code code="npm install free-astro-components" />
       </div>
     </Hero>
 
     <Component id="components" title="Icons">
-      <Code slot="code">
-        {`import { Icon } from 'free-astro-components'`}
-        <br />
-        <br />
-        {`<Icon icon='icon-name' class='icon-classes' />`}
-      </Code>
+      <Code
+        code={`import { Icon } from 'free-astro-components'<br><br><Icon icon='icon-name' class='icon-classes' />`}
+        slot="code"
+      />
       <ul class="flex flex-col gap-8">
         {
           iconsCategories.map((category) => {

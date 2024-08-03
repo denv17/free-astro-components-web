@@ -1,0 +1,20 @@
+---
+import { Code } from 'astro-expressive-code/components'
+
+interface Props {
+  frame?: 'none' | 'code' | 'terminal' | 'auto' | undefined
+  lang?: string
+  title?: string
+  code: string
+}
+
+const { frame, title, lang, code } = Astro.props
+---
+
+<div
+  class="bg-gradient-to-r from-primary/50 to-secondary/50 appearance-none rounded-lg p-px"
+>
+  <div class="bg-neutral-100/90 text-neutral-500 rounded-lg overflow-clip">
+    <Code frame={frame} title={title} lang={lang} code={code} />
+  </div>
+</div>

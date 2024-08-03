@@ -1,0 +1,75 @@
+---
+interface Props {
+  level?: number
+  text: string
+  gradient?: boolean
+  class?: string
+}
+
+const { level = 2, text, gradient, class: className, ...props } = Astro.props
+
+const levelClasses = {
+  1: 'text-4xl lg:text-5xl',
+  2: 'text-3xl lg:text-4xl',
+  3: 'text-2xl lg:text-3xl',
+  4: 'text-xl lg:text-2xl',
+  5: 'text-lg lg:text-xl',
+  6: 'text-base lg:text-lg',
+}[level]
+
+const gradientClasses = gradient
+  ? 'bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text'
+  : ''
+
+const headingClasses = [levelClasses, gradientClasses, className]
+  .filter(Boolean)
+  .join(' ')
+---
+
+{
+  level === 1 && (
+    <h1 class={headingClasses} {...props}>
+      {text}
+    </h1>
+  )
+}
+
+{
+  level === 2 && (
+    <h2 class={headingClasses} {...props}>
+      {text}
+    </h2>
+  )
+}
+
+{
+  level === 3 && (
+    <h3 class={headingClasses} {...props}>
+      {text}
+    </h3>
+  )
+}
+
+{
+  level === 4 && (
+    <h4 class={headingClasses} {...props}>
+      {text}
+    </h4>
+  )
+}
+
+{
+  level === 5 && (
+    <h5 class={headingClasses} {...props}>
+      {text}
+    </h5>
+  )
+}
+
+{
+  level === 6 && (
+    <h6 class={headingClasses} {...props}>
+      {text}
+    </h6>
+  )
+}

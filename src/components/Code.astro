@@ -1,9 +1,70 @@
+---
+import { Icon } from 'free-astro-components'
+
+interface Props {
+  code: string
+}
+
+const { code } = Astro.props
+---
+
 <div
-  class="inline-block bg-gradient-to-r from-primary/50 to-secondary/50 rounded-lg p-px"
+  data-code-block
+  class="inline-flex bg-gradient-to-r from-primary/50 to-secondary/50 appearance-none rounded-lg p-px"
 >
-  <code
-    class="inline-block bg-neutral-100/90 text-neutral-500 text-sm rounded-lg px-5 py-3"
+  <div
+    class="inline-flex items-center gap-2 bg-neutral-100/90 text-neutral-500 rounded-lg p-3"
   >
-    <slot />
-  </code>
+    <Icon icon="chevron-right" class="w-4 h-4" />
+    <code data-code class="text-sm">
+      {code}
+    </code>
+    <div class="relative flex items-center">
+      <button
+        data-copy-button
+        class="hover:text-neutral-700 transition duration-300"
+      >
+        <Icon icon="code-clipboard" class="w-5 h-5" />
+      </button>
+      <span
+        data-tooltip
+        class="absolute top-[calc(100%+0.5rem)] left-1/2 -translate-x-1/2 inline-block bg-neutral-100/50 text-neutral-700 text-sm px-2 py-1 opacity-0 data-[visible=true]:opacity-100 rounded transition duration-300"
+        data-visible="false"
+        aria-hidden="true"
+      >
+        Copied!
+      </span>
+    </div>
+  </div>
 </div>
+
+<script>
+  import { DOMLoaded } from '../ts/utils'
+
+  DOMLoaded(() => {
+    const copyButtons = document.querySelectorAll(
+      '[data-copy-button]'
+    ) as NodeListOf<HTMLButtonElement>
+
+    copyButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const codeBlock = button.closest('[data-code-block]') as HTMLElement
+        const code = codeBlock.querySelector('[data-code]') as HTMLElement
+        const text = code.textContent as string
+        const tooltip = codeBlock.querySelector('[data-tooltip]') as HTMLElement
+
+        console.log(tooltip)
+
+        navigator.clipboard.writeText(text).then(() => {
+          tooltip.setAttribute('data-visible', 'true')
+          tooltip.setAttribute('aria-hidden', 'false')
+
+          setTimeout(() => {
+            tooltip.setAttribute('data-visible', 'false')
+            tooltip.setAttribute('aria-hidden', 'true')
+          }, 2000)
+        })
+      })
+    })
+  })
+</script>

@@ -3,10 +3,103 @@ import Header from '../../components/Header.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Content from '../../layouts/Content.astro'
+import Article from '../../components/Article.astro'
+import Prose from '../../components/Prose.astro'
+import Heading from '../../components/Heading.astro'
+import Text from '../../components/Text.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Link from '../../components/Link.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+
+const importComponentCode = `
+---
+import { Button } from 'free-astro-components'
+---
+`
+const useComponentCode = `
+---
+import { Button } from 'free-astro-components'
 ---
 
-<Layout title="Free Astro Components - Installation">
+<Button label='Click me' />
+`
+---
+
+<Layout title="Free Astro Components - Installation Guide">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Installation Guide"
+        />
+        <Prose>
+          <Heading level={2} text="Prerequisites" />
+          <Text>
+            Before you can start using the Free Astro Components, you need to
+            have the following prerequisites installed on your machine:
+          </Text>
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Node.js</strong>: Make sure you have Node.js installed.
+                You can download it from <Link
+                  href="https://nodejs.org/"
+                  target="_blank">Node.js</Link
+                >.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Astro</strong>: Your project should be set up with
+                Astro. You can follow the <Link
+                  href="https://docs.astro.build/en/getting-started/"
+                  target="_blank">Astro documentation</Link
+                > to get started.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Installing the Components" />
+          <Heading level={3} text="1. Install the Package" />
+          <Text>
+            To use the Free Astro Components, you need to install the package
+            via npm. Run the following command in your project directory:
+          </Text>
+          <CodeBlock
+            frame="terminal"
+            lang="bash"
+            code="npm install free-astro-components"
+          />
+          <Heading level={3} text="2. Import the Components" />
+          <Text>
+            Once the package is installed, you can import the components you
+            need into your Astro pages or components. For example:
+          </Text>
+          <CodeBlock
+            title="src/pages/index.astro"
+            lang="astro"
+            code={importComponentCode}
+          />
+          <Heading level={3} text="3. Use the Components" />
+          <Text>
+            After importing, you can use the components in your project. Here's
+            an example of how to use a Button component:
+          </Text>
+          <CodeBlock
+            title="src/pages/index.astro"
+            lang="astro"
+            code={useComponentCode}
+          />
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>
