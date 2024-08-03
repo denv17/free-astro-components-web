@@ -12,6 +12,7 @@ import {
   Select,
 } from 'free-astro-components'
 import Code from '../components/Code.astro'
+import CodeBlock from '../components/CodeBlock.astro'
 import Component from '../sections/Component.astro'
 import CTA from '../sections/CTA.astro'
 import Footer from '../components/Footer.astro'
@@ -30,20 +31,24 @@ import Sidebar from '../layouts/Sidebar.astro'
       description="Explore my collection of free Astro components designed to enhance your projects."
     >
       <div>
-        <Button
-          icon="arrow-down"
-          href="#components"
-          label="Explore Components"
-        />
+        <Button icon="arrow-down" href="#icons" label="Explore Components" />
       </div>
       <div>
         <Code code="npm install free-astro-components" />
       </div>
     </Hero>
 
-    <Component id="components" title="Icons">
-      <Code
-        code={`import { Icon } from 'free-astro-components'<br><br><Icon icon='icon-name' class='icon-classes' />`}
+    <Component id="icons" title="Icons">
+      <CodeBlock
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Icon } from 'free-astro-components'
+---
+
+<Icon icon='icon-name' class='icon-classes' />
+        `}
         slot="code"
       />
       <ul class="flex flex-col gap-8">
@@ -73,15 +78,19 @@ import Sidebar from '../layouts/Sidebar.astro'
       </ul>
     </Component>
 
-    <Component title="Buttons">
-      <Code slot="code">
-        {`import { Button } from 'free-astro-components'`}
-        <br />
-        <br />
-        {
-          `<Button size="medium" icon="star" variant="primary" label="Button primary" />`
-        }
-      </Code>
+    <Component id="buttons" title="Buttons">
+      <CodeBlock
+        slot="code"
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Button } from 'free-astro-components'
+---
+
+<Button size="medium" icon="star" variant="primary" label="Button primary" />
+      `}
+      />
       <ul class="flex flex-col gap-8">
         <li class="flex flex-col gap-4">
           <h3
@@ -222,17 +231,24 @@ import Sidebar from '../layouts/Sidebar.astro'
       </ul>
     </Component>
 
-    <Component title="Controls">
-      <Code slot="code">
-        {`import { Checkbox, Radio, Switch } from 'free-astro-components'`}
-        <br />
-        <br />
-        {`<Checkbox label="Checkbox" />`}
-        <br />
-        {`<Radio label="Radio" />`}
-        <br />
-        {`<Switch label="Switch" />`}
-      </Code>
+    <Component id="controls" title="Controls">
+      <CodeBlock
+        slot="code"
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Checkbox, Radio, Switch } from 'free-astro-components'
+---
+
+<Checkbox label="Checkbox" />
+
+<Radio label="Radio" />
+
+<Switch label="Switch" />
+      `}
+      />
+
       <ul class="flex flex-col gap-8">
         <li class="flex flex-col gap-4">
           <h3
@@ -310,15 +326,19 @@ import Sidebar from '../layouts/Sidebar.astro'
       </ul>
     </Component>
 
-    <Component title="Inputs">
-      <Code slot="code">
-        {`import { Input } from 'free-astro-components'`}
-        <br />
-        <br />
-        {
-          `<Input label="Input label" placeholder="Input placeholder" helperText="Input helper text" />`
-        }
-      </Code>
+    <Component id="inputs" title="Inputs">
+      <CodeBlock
+        slot="code"
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Input } from 'free-astro-components'
+---
+
+<Input label="Input label" placeholder="Input placeholder" helperText="Input helper text" />
+      `}
+      />
       <ul
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
@@ -407,15 +427,19 @@ import Sidebar from '../layouts/Sidebar.astro'
       </ul>
     </Component>
 
-    <Component title="Textareas">
-      <Code slot="code">
-        {`import { Textarea } from 'free-astro-components'`}
-        <br />
-        <br />
-        {
-          `<Textarea label="Textarea label" placeholder="Textarea placeholder" helperText="Textarea helper text" />`
-        }
-      </Code>
+    <Component id="textareas" title="Textareas">
+      <CodeBlock
+        slot="code"
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Textarea } from 'free-astro-components'
+---
+
+<Textarea label="Textarea label" placeholder="Textarea placeholder" helperText="Textarea helper text" />
+      `}
+      />
       <ul
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
@@ -488,15 +512,19 @@ import Sidebar from '../layouts/Sidebar.astro'
       </ul>
     </Component>
 
-    <Component title="Selects">
-      <Code slot="code">
-        {`import { Select } from 'free-astro-components'`}
-        <br />
-        <br />
-        {
-          `<Select label="Select label" placeholder="Select placeholder" helperText="Select helper text" />`
-        }
-      </Code>
+    <Component id="selects" title="Selects">
+      <CodeBlock
+        slot="code"
+        title="src/pages/index.astro"
+        lang="astro"
+        code={`
+---
+import { Select } from 'free-astro-components'
+---
+
+<Select label="Select label" placeholder="Select placeholder" helperText="Select helper text" />
+      `}
+      />
       <ul
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
       >
