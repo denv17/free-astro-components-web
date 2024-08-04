@@ -47,13 +47,13 @@ import Hamburguer from './Hamburguer.astro'
   DOMLoaded(() => {
     const body = document.querySelector('body') as HTMLElement
     const hamburguer = document.querySelector(
-      '.js-hamburguer'
+      '[data-hamburguer]'
     ) as HTMLButtonElement
-    const nav = document.querySelector('.js-nav') as HTMLElement
+    const nav = document.querySelector('[data-nav]') as HTMLElement
 
     hamburguer.addEventListener('click', () => {
-      hamburguer.classList.toggle('is-open')
-      nav.classList.toggle('-translate-x-full')
+      hamburguer.toggleAttribute('open')
+      nav.toggleAttribute('open')
       body.classList.toggle('overflow-hidden')
     })
   })

@@ -1,7 +1,8 @@
 <label class="cursor-pointer">
   <span class="absolute opacity-0 w-0 h-0 overflow-hidden">Change theme</span>
   <input
-    class="js-theme-switch absolute w-0 h-0 opacity-0 peer"
+    data-theme-switch
+    class="absolute w-0 h-0 opacity-0 peer"
     type="checkbox"
   />
   <svg class="block w-5 h-5 peer-checked:hidden" viewBox="0 0 24 24">
@@ -21,7 +22,7 @@
 
   DOMLoaded(() => {
     const themeSwitch = document.querySelector(
-      '.js-theme-switch'
+      '[data-theme-switch]'
     ) as HTMLInputElement
     const theme = localStorage.getItem('theme')
 

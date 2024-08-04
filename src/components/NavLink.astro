@@ -3,7 +3,7 @@ const { href, label, class: className } = Astro.props
 const currentPath = new URL(Astro.request.url).pathname
 
 const linkClasses = [
-  'flex items-center gap-4 text-sm text-neutral-500 hover:text-primary [&.is-active]:text-primary [&.is-active]:font-semibold pl-5 py-1 border-l border-neutral-200 hover:border-neutral-400 [&.is-active]:border-primary transition duration-300 ease-in-out',
+  'flex items-center gap-4 text-sm text-neutral-500 hover:text-primary/90 [&.is-active]:text-primary [&.is-active]:font-medium pl-5 py-1 border-l border-neutral-200 hover:border-neutral-400 [&.is-active]:border-primary transition duration-300 ease-in-out',
   className,
   href === currentPath ? 'is-active' : '',
 ]

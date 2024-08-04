@@ -1,80 +1,30 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
-import Content from '../../layouts/Content.astro'
+import {
+  importCode,
+  basicUsageCode,
+  disabledCode,
+  sizesCode,
+  variantsCode,
+  withIconCode,
+  iconOnlyCode,
+  customVariablesCode,
+  customStylesCode,
+} from './button.ts'
+import { Button as ButtonAc } from 'free-astro-components'
 import Article from '../../components/Article.astro'
-import Prose from '../../components/Prose.astro'
-import Heading from '../../components/Heading.astro'
-import Text from '../../components/Text.astro'
 import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
 import List from '../../components/List.astro'
 import ListItem from '../../components/ListItem.astro'
-
-const importCode = `
----
-import { Button } from 'free-astro-components'
----
-`
-const basicUsageCode = `
----
-import { Button } from 'free-astro-components'
----
-
-<Button label='Click me' />
-`
-const disabledCode = `
-<Button label='Click me' disabled />
-`
-const sizesCode = `
-<Button label='Click me' size='medium' />
-<Button label='Click me' size='small' />
-`
-const variantsCode = `
-<Button label='Primary' variant='primary' />
-<Button label='Secondary' variant='secondary' />
-<Button label='Dark' variant='dark' />
-<Button label='Light' variant='light' />
-`
-const withIconCode = `
-<Button label='Click me' icon='arrow-left' iconPosition='left' />
-<Button label='Click me' icon='arrow-right' iconPosition='right' />
-`
-const iconOnlyCode = `
-<Button icon='star' />
-`
-const customVariablesCode = `
---ac-btn-border-radius
---ac-btn-font-weight
---ac-btn-gap
---ac-btn-icon-medium-size
---ac-btn-icon-small-size
---ac-btn-medium-font-size
---ac-btn-medium-height
---ac-btn-medium-icon-size
---ac-btn-medium-padding
---ac-btn-small-font-size
---ac-btn-small-height
---ac-btn-small-icon-size
---ac-btn-small-padding
-`
-const customStylesCode = `
-<Button label='Click me' class='custom-button' />
-
-<style>
-/* Example of custom button styles */
-.custom-button {
-  --ac-btn-border-radius: 999px;
-  --ac-btn-font-weight: 400;
-  border-color: transparent;
-  background-image: linear-gradient(
-    90deg,
-    rgb(var(--ac-primary)) 0%,
-    rgb(var(--ac-secondary)) 100%
-  );
-}
-</style>
-`
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Text from '../../components/Text.astro'
 ---
 
 <Layout title="Free Astro Components - Button">
@@ -115,60 +65,137 @@ const customStylesCode = `
             various use cases.
           </Text>
           <Heading level={3} text="Basic Usage" />
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={basicUsageCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <ButtonAc label="Button" />
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={basicUsageCode}
+              />
+            </TabItem>
+          </Tab>
           <Heading level={3} text="Disabled" />
           <Text>
             To disable the button, use the <code>disabled</code> prop.
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={disabledCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc label="Button disabled" disabled />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={disabledCode}
+              />
+            </TabItem>
+          </Tab>
           <Heading level={3} text="Sizes" />
           <Text>
             The component supports two sizes: <code>medium</code> and <code
               >small</code
             >.
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={sizesCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc label="Buton small" size="small" />
+                  <ButtonAc label="Button medium" size="medium" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={sizesCode}
+              />
+            </TabItem>
+          </Tab>
           <Heading level={3} text="Variants" />
           <Text>
             Choose from four visual variants to match different design contexts:
             <code>'primary' | 'secondary' | 'dark' | 'light'</code>.
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={variantsCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc label="Button primary" variant="primary" />
+                  <ButtonAc label="Button secondary" variant="secondary" />
+                  <ButtonAc label="Button dark" variant="dark" />
+                  <ButtonAc label="Button light" variant="light" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={variantsCode}
+              />
+            </TabItem>
+          </Tab>
           <Heading level={3} text="With Icon" />
           <Text>
             You can add an icon to the button, either on the left or right side
             of the label.
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={withIconCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc
+                    label="Button"
+                    icon="arrow-left"
+                    iconPosition="left"
+                  />
+                  <ButtonAc
+                    label="Button"
+                    icon="arrow-right"
+                    iconPosition="right"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={withIconCode}
+              />
+            </TabItem>
+          </Tab>
           <Heading level={3} text="Icon Only" />
           <Text>
             For an icon-only button, omit the <code>label</code> prop.
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={iconOnlyCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc icon="star" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={iconOnlyCode}
+              />
+            </TabItem>
+          </Tab>
         </Prose>
         <Prose>
           <Heading level={2} text="Custom Styles" />
@@ -184,11 +211,22 @@ const customStylesCode = `
             To customize the button styles, you can override these variables in
             your CSS:
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={customStylesCode}
-          />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <ButtonAc label="Custom button" class="custom-button" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock
+                lang="astro"
+                title="src/pages/index.astro"
+                code={customStylesCode}
+              />
+            </TabItem>
+          </Tab>
         </Prose>
         <Prose>
           <Heading level={2} text="Props" />
@@ -270,3 +308,16 @@ const customStylesCode = `
     </section>
   </Content>
 </Layout>
+
+<style>
+  .custom-button {
+    --ac-btn-border-radius: 999px;
+    --ac-btn-font-weight: 600;
+    border-width: 0;
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--ac-primary)) 0%,
+      rgb(var(--ac-secondary)) 100%
+    );
+  }
+</style>

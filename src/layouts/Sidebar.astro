@@ -7,8 +7,9 @@ const { class: className } = Astro.props
 ---
 
 <aside
+  data-nav
   class:list={[
-    'js-nav fixed left-0 inset-y-0 -translate-x-full lg:translate-x-0 w-full lg:w-72 bg-neutral-100/60 backdrop-blur-md pt-16 z-10 transition-transform duration-300 ease-in-out',
+    'fixed left-0 inset-y-0 -translate-x-full [&[open]]:translate-x-0 lg:translate-x-0 w-full lg:w-72 bg-neutral-100/60 backdrop-blur-md pt-16 z-10 transition-transform duration-300 ease-in-out',
     className,
   ]}
 >

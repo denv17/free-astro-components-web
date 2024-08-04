@@ -1,5 +1,10 @@
 ---
-import { Button } from 'free-astro-components'
+interface Props {
+  title?: string
+  description?: string
+  align?: 'center' | 'left' | 'right'
+}
+
 const { title, description, align } = Astro.props
 ---
 
