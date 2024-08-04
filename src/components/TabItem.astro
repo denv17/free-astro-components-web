@@ -7,9 +7,5 @@ const { active } = Astro.props
   data-active={active}
   class="hidden [&[data-active]]:block group"
 >
-  <div
-    class="opacity-0 group-[[data-active]]:opacity-100 transition duration-300"
-  >
-    <slot />
-  </div>
+  <slot />
 </div>

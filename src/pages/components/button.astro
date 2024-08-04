@@ -1,14 +1,16 @@
 ---
 import {
-  importCode,
   basicUsageCode,
+  customStylesCode,
+  customVariablesCode,
   disabledCode,
+  iconOnlyCode,
+  importCode,
   sizesCode,
+  tableHead,
+  tableRows,
   variantsCode,
   withIconCode,
-  iconOnlyCode,
-  customVariablesCode,
-  customStylesCode,
 } from './button.ts'
 import { Button as ButtonAc } from 'free-astro-components'
 import Article from '../../components/Article.astro'
@@ -25,6 +27,7 @@ import Sidebar from '../../layouts/Sidebar.astro'
 import Tab from '../../components/Tab.astro'
 import TabItem from '../../components/TabItem.astro'
 import Text from '../../components/Text.astro'
+import Table from '../../components/Table.astro'
 ---
 
 <Layout title="Free Astro Components - Button">
@@ -52,11 +55,7 @@ import Text from '../../components/Text.astro'
           <Text>
             To use the button component, first import it into your project:
           </Text>
-          <CodeBlock
-            lang="astro"
-            title="src/pages/index.astro"
-            code={importCode}
-          />
+          <CodeBlock lang="astro" code={importCode} />
         </Prose>
         <Prose>
           <Heading level={2} text="Usage" />
@@ -72,11 +71,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={basicUsageCode}
-              />
+              <CodeBlock lang="astro" code={basicUsageCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="Disabled" />
@@ -92,11 +87,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={disabledCode}
-              />
+              <CodeBlock lang="astro" code={disabledCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="Sizes" />
@@ -115,11 +106,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={sizesCode}
-              />
+              <CodeBlock lang="astro" code={sizesCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="Variants" />
@@ -139,11 +126,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={variantsCode}
-              />
+              <CodeBlock lang="astro" code={variantsCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="With Icon" />
@@ -169,11 +152,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={withIconCode}
-              />
+              <CodeBlock lang="astro" code={withIconCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="Icon Only" />
@@ -189,11 +168,7 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={iconOnlyCode}
-              />
+              <CodeBlock lang="astro" code={iconOnlyCode} />
             </TabItem>
           </Tab>
         </Prose>
@@ -220,64 +195,13 @@ import Text from '../../components/Text.astro'
               </Preview>
             </TabItem>
             <TabItem>
-              <CodeBlock
-                lang="astro"
-                title="src/pages/index.astro"
-                code={customStylesCode}
-              />
+              <CodeBlock lang="astro" code={customStylesCode} />
             </TabItem>
           </Tab>
         </Prose>
         <Prose>
           <Heading level={2} text="Props" />
-          <table>
-            <thead>
-              <tr>
-                <th>Prop</th>
-                <th>Type</th>
-                <th>Default</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>label</td>
-                <td>string</td>
-                <td>''</td>
-                <td>The text displayed on the button</td>
-              </tr>
-              <tr>
-                <td>size</td>
-                <td>string</td>
-                <td>'medium'</td>
-                <td>The size of the button</td>
-              </tr>
-              <tr>
-                <td>variant</td>
-                <td>string</td>
-                <td>'primary' | 'seondaty' | 'dark' | 'light'</td>
-                <td>The visual variant of the button</td>
-              </tr>
-              <tr>
-                <td>icon</td>
-                <td>string</td>
-                <td>''</td>
-                <td>The icon to display on the button</td>
-              </tr>
-              <tr>
-                <td>iconPosition</td>
-                <td>string</td>
-                <td>'left' | 'right'</td>
-                <td>The position of the icon relative to the label</td>
-              </tr>
-              <tr>
-                <td>other</td>
-                <td>any</td>
-                <td></td>
-                <td>Any other props will be passed to the button element</td>
-              </tr>
-            </tbody>
-          </table>
+          <Table head={tableHead} rows={tableRows} />
         </Prose>
         <Prose>
           <Heading level={2} text="Accessibility" />
