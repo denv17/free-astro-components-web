@@ -3,10 +3,119 @@ import Header from '../../components/Header.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Content from '../../layouts/Content.astro'
+import Article from '../../components/Article.astro'
+import Prose from '../../components/Prose.astro'
+import Heading from '../../components/Heading.astro'
+import Text from '../../components/Text.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+
+const customBaseColors = `
+:root {
+  --ac-primary: 255, 64, 93; /* New primary color */
+  --ac-secondary: 213, 98, 251; /* New secondary color */
+  --ac-dark: 33, 33, 33; /* New dark color */
+  --ac-gray-100: 240, 240, 240; /* New light gray */
+  --ac-gray-200: 200, 200, 200; /* New medium gray */
+  --ac-gray-300: 160, 160, 160; /* New dark gray */
+  --ac-success: 0, 200, 0; /* New success color */
+  --ac-warning: 255, 220, 0; /* New warning color */
+  --ac-danger: 255, 50, 50; /* New danger color */
+}
+`
+const customLightColors = `
+.light,
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --ac-color-100: var(--ac-white);
+  --ac-color-200: var(--ac-gray-100);
+  --ac-color-300: var(--ac-gray-200);
+  --ac-color-400: var(--ac-gray-300);
+  --ac-color-500: var(--ac-gray-400);
+  --ac-color-600: var(--ac-gray-500);
+  --ac-color-700: var(--ac-dark);
+}
+`
+const customDarkColors = `
+.dark,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --ac-color-100: var(--ac-dark);
+  --ac-color-200: var(--ac-gray-500);
+  --ac-color-300: var(--ac-gray-400);
+  --ac-color-400: var(--ac-gray-300);
+  --ac-color-500: var(--ac-gray-200);
+  --ac-color-600: var(--ac-gray-100);
+  --ac-color-700: var(--ac-white);
+}
+`
 ---
 
 <Layout title="Free Astro Components - Customize Colors">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Customize Colors"
+        />
+        <Prose>
+          <Text>
+            This section explains how to customize the color variables to fit
+            your project's visual identity. You can adjust the colors by
+            modifying the CSS variables used throughout the project.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Customization Example" />
+          <Heading level={4} text="Base Colors" />
+          <Text>
+            You can change the base colors by updating the following variables
+            in your main stylesheet:
+          </Text>
+          <CodeBlock lang="css" title="css" code={customBaseColors} />
+          <Heading level={4} text="Customized Color Modes" />
+          <Text>
+            You can adjust the colors for both light and dark modes by modifying
+            the corresponding variables in your stylesheet:
+          </Text>
+          <Heading level={3} text="Customized Light Mode" />
+          <CodeBlock lang="css" title="css" code={customLightColors} />
+          <Heading level={3} text="Customized Dark Mode" />
+          <CodeBlock lang="css" title="css" code={customDarkColors} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Tips" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Consistency</strong>: Use these colors consistently to
+                maintain a cohesive visual experience.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Contrast</strong>: Ensure that text and interactive
+                elements are clearly visible and accessible.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Accessibility</strong>: Verify that the chosen colors
+                are accessible to all users, including those with visual
+                impairments.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>

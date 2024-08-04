@@ -3,10 +3,270 @@ import Header from '../../components/Header.astro'
 import Layout from '../../layouts/Layout.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Content from '../../layouts/Content.astro'
+import Article from '../../components/Article.astro'
+import Prose from '../../components/Prose.astro'
+import Heading from '../../components/Heading.astro'
+import Text from '../../components/Text.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+
+const importCode = `
+---
+import { Button } from 'free-astro-components'
+---
+`
+const basicUsageCode = `
+---
+import { Button } from 'free-astro-components'
+---
+
+<Button label='Click me' />
+`
+const disabledCode = `
+<Button label='Click me' disabled />
+`
+const sizesCode = `
+<Button label='Click me' size='medium' />
+<Button label='Click me' size='small' />
+`
+const variantsCode = `
+<Button label='Primary' variant='primary' />
+<Button label='Secondary' variant='secondary' />
+<Button label='Dark' variant='dark' />
+<Button label='Light' variant='light' />
+`
+const withIconCode = `
+<Button label='Click me' icon='arrow-left' iconPosition='left' />
+<Button label='Click me' icon='arrow-right' iconPosition='right' />
+`
+const iconOnlyCode = `
+<Button icon='star' />
+`
+const customVariablesCode = `
+--ac-btn-border-radius
+--ac-btn-font-weight
+--ac-btn-gap
+--ac-btn-icon-medium-size
+--ac-btn-icon-small-size
+--ac-btn-medium-font-size
+--ac-btn-medium-height
+--ac-btn-medium-icon-size
+--ac-btn-medium-padding
+--ac-btn-small-font-size
+--ac-btn-small-height
+--ac-btn-small-icon-size
+--ac-btn-small-padding
+`
+const customStylesCode = `
+<Button label='Click me' class='custom-button' />
+
+<style>
+/* Example of custom button styles */
+.custom-button {
+  --ac-btn-border-radius: 999px;
+  --ac-btn-font-weight: 400;
+  border-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    rgb(var(--ac-primary)) 0%,
+    rgb(var(--ac-secondary)) 100%
+  );
+}
+</style>
+`
 ---
 
 <Layout title="Free Astro Components - Button">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Button"
+        />
+        <Prose>
+          <Text>
+            The button component is a versatile UI element for triggering
+            actions or navigating through your application. Below are the
+            available configurations and usage examples.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the button component, first import it into your project:
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={importCode}
+          />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            To button component can be easily added to your project. Below are
+            various use cases.
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={basicUsageCode}
+          />
+          <Heading level={3} text="Disabled" />
+          <Text>
+            To disable the button, use the <code>disabled</code> prop.
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={disabledCode}
+          />
+          <Heading level={3} text="Sizes" />
+          <Text>
+            The component supports two sizes: <code>medium</code> and <code
+              >small</code
+            >.
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={sizesCode}
+          />
+          <Heading level={3} text="Variants" />
+          <Text>
+            Choose from four visual variants to match different design contexts:
+            <code>'primary' | 'secondary' | 'dark' | 'light'</code>.
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={variantsCode}
+          />
+          <Heading level={3} text="With Icon" />
+          <Text>
+            You can add an icon to the button, either on the left or right side
+            of the label.
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={withIconCode}
+          />
+          <Heading level={3} text="Icon Only" />
+          <Text>
+            For an icon-only button, omit the <code>label</code> prop.
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={iconOnlyCode}
+          />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Custom Styles" />
+          <Text>
+            The button component offers various CSS variables that you can
+            customize to match your design needs. Below are the available
+            variables and an example of how to use them:
+          </Text>
+          <Heading level={3} text="Available Variables" />
+          <CodeBlock lang="css" code={customVariablesCode} />
+          <Heading level={3} text="Example Customization" />
+          <Text>
+            To customize the button styles, you can override these variables in
+            your CSS:
+          </Text>
+          <CodeBlock
+            lang="astro"
+            title="src/pages/index.astro"
+            code={customStylesCode}
+          />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <table>
+            <thead>
+              <tr>
+                <th>Prop</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>label</td>
+                <td>string</td>
+                <td>''</td>
+                <td>The text displayed on the button</td>
+              </tr>
+              <tr>
+                <td>size</td>
+                <td>string</td>
+                <td>'medium'</td>
+                <td>The size of the button</td>
+              </tr>
+              <tr>
+                <td>variant</td>
+                <td>string</td>
+                <td>'primary' | 'seondaty' | 'dark' | 'light'</td>
+                <td>The visual variant of the button</td>
+              </tr>
+              <tr>
+                <td>icon</td>
+                <td>string</td>
+                <td>''</td>
+                <td>The icon to display on the button</td>
+              </tr>
+              <tr>
+                <td>iconPosition</td>
+                <td>string</td>
+                <td>'left' | 'right'</td>
+                <td>The position of the icon relative to the label</td>
+              </tr>
+              <tr>
+                <td>other</td>
+                <td>any</td>
+                <td></td>
+                <td>Any other props will be passed to the button element</td>
+              </tr>
+            </tbody>
+          </table>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure that all buttons
+                are reachable and operable using a keyboard. Focus should be
+                clearly visible, and buttons should respond to keyboard events.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use appropriate ARIA roles and
+                attributes to convey the button's purpose and state to assistive
+                technologies.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Visual Clarity</strong>: Buttons should have sufficient
+                contrast against their background to be easily distinguishable.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>
