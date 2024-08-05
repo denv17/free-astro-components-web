@@ -91,10 +91,10 @@ export const tableHead = ['Attribute', 'Type', 'Description', 'Default']
 
 export const tableRows = [
   [
-    {head: 'Attribute', label:'label'},
-    {head: 'Type', label:'<code>string</code>'},
-    {head: 'Description', label:'The text displayed on the button'},
-    {head: 'Default', label:'-'}
+    { head: 'Attribute', label: 'label' },
+    { head: 'Type', label: '<code>string</code>' },
+    { head: 'Description', label: 'The text displayed on the button' },
+    { head: 'Default', label: '-' },
   ],
   [
     {
@@ -143,7 +143,8 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'The name of the icon to display on the button from the available <a href="/components/icon" class="text-primary hover:text-primary/90 hover:underline underline-offset-2 transition duration-300">icon list.</a>',
+      label:
+        'The name of the icon to display on the button from the available <a href="/components/icon" class="text-primary hover:text-primary/90 hover:underline underline-offset-2 transition duration-300">icon list.</a>',
     },
     {
       head: 'Default',
@@ -171,6 +172,24 @@ export const tableRows = [
   [
     {
       head: 'Attribute',
+      label: 'class',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label: 'CSS class for custom styling.',
+    },
+    {
+      head: 'Default',
+      label: '-',
+    },
+  ],
+  [
+    {
+      head: 'Attribute',
       label: 'other',
     },
     {
@@ -179,7 +198,8 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the <code>button</code> element',
+      label:
+        'Any other props will be passed to the <code>button</code> element',
     },
     {
       head: 'Default',

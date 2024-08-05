@@ -26,10 +26,49 @@ export const tableHead = ['Attribute', 'Type', 'Description', 'Default']
 
 export const tableRows = [
   [
-    {head: 'Attribute', label:'label'},
-    {head: 'Type', label:'<code>string</code>'},
-    {head: 'Description', label:'The text label associated with the checkbox.'},
-    {head: 'Default', label:'-'}
+    { head: 'Attribute', label: 'label' },
+    { head: 'Type', label: '<code>string</code>' },
+    {
+      head: 'Description',
+      label: 'The text label associated with the checkbox.',
+    },
+    { head: 'Default', label: '-' },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'checked',
+    },
+    {
+      head: 'Type',
+      label: '<code>boolean</code>',
+    },
+    {
+      head: 'Description',
+      label: 'Applies a checked state if <code>true</code>.',
+    },
+    {
+      head: 'Default',
+      label: '<code>false</code>',
+    },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'disabled',
+    },
+    {
+      head: 'Type',
+      label: '<code>boolean</code>',
+    },
+    {
+      head: 'Description',
+      label: 'Disables the checkbox if <code>true</code>.',
+    },
+    {
+      head: 'Default',
+      label: '<code>false</code>',
+    },
   ],
   [
     {
@@ -42,11 +81,30 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Applies an error class if <code>true</code>. Useful for indicating validation errors.',
+      label:
+        'Applies an error class if <code>true</code>. Useful for indicating validation errors.',
     },
     {
       head: 'Default',
       label: '<code>false</code>',
+    },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'class',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label: 'CSS class for custom styling.',
+    },
+    {
+      head: 'Default',
+      label: '-',
     },
   ],
   [
@@ -60,7 +118,8 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the <code>checkbox</code> element',
+      label:
+        'Any other props will be passed to the <code>checkbox</code> element',
     },
     {
       head: 'Default',

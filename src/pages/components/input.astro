@@ -1,12 +1,263 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
+import {
+  basicUsageCode,
+  disabledCode,
+  helperTextCode,
+  importCode,
+  passwordCode,
+  readonlyCode,
+  searchCode,
+  statusCode,
+  tableHead,
+  tableRows,
+} from '../../data/input.ts'
+import { Input as InputAc } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
 ---
 
 <Layout title="Free Astro Components - Input">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Input"
+        />
+        <Prose>
+          <Text>
+            The input component is a versatile input field that supports various
+            configurations and states. It can be used for standard text inputs,
+            search fields, password inputs, and more.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the input component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here’s how you can use the input component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text> To create a basic input field, use the following code: </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc label="Basic input" placeholder="Enter text..." />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Disabled" />
+          <Text>
+            To disable the input field, set the <code>disabled</code> prop to <code
+              >true</code
+            >.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Disabled Input"
+                    placeholder="Disabled input"
+                    disabled
+                  />
+                  <InputAc
+                    label="Disabled Input"
+                    value="Disabled input"
+                    placeholder="Disabled input"
+                    disabled
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={disabledCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Readonly" />
+          <Text>
+            To make the input field readonly, set the <code>readonly</code> prop
+            to <code>true</code>.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Readonly Input"
+                    value="Readonly Input"
+                    readonly
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={readonlyCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Search" />
+          <Text>
+            To style the input field as a search input, set the <code>type</code
+            > prop to <code>search</code>.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Search"
+                    placeholder="Search..."
+                    type="search"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={searchCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Password" />
+          <Text>
+            To use the input field for passwords, set the <code>type</code> prop
+            to <code>password</code>.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Password"
+                    placeholder="Password..."
+                    type="password"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={passwordCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Helper Text" />
+          <Text>
+            You can provide additional information using the <code
+              >helperText</code
+            > prop.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Input with Helper Text"
+                    placeholder="Enter text..."
+                    helperText="This is some helper text."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={helperTextCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Status" />
+          <Text>
+            To indicate a specific state of the input field, use the <code
+              >status</code
+            > attribute. Possible values are <code>default</code>, <code
+              >success</code
+            >, and <code>error</code>. You can use <code>helperText</code> to provide
+            additional context.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <InputAc
+                    label="Default State"
+                    placeholder="Default state"
+                    status="default"
+                    helperText="This is some helper text."
+                  />
+                  <InputAc
+                    label="Success State"
+                    value="Success state"
+                    placeholder="Success state"
+                    status="success"
+                    helperText="This is a success message."
+                  />
+                  <InputAc
+                    label="Error State"
+                    placeholder="Error state"
+                    status="error"
+                    helperText="This is an error message."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={statusCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure that the input
+                field can be focused and used with the keyboard.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use appropriate ARIA
+                attributes to describe the state of the input, such as <code
+                  >aria-invalid</code
+                > for error states.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Labeling</strong>: Provide clear labels for each input
+                field to assist screen reader users.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>
