@@ -1,12 +1,165 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
+import { icons } from '../../data/icons.ts'
+import { iconsCategories } from '../../data/icons-categories.ts'
+import {
+  basicUsageCode,
+  customizationCode,
+  importCode,
+  tableHead,
+  tableRows,
+} from './icon.ts'
+import { Icon as IconAc } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import IconCard from '../../components/IconCard.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
 ---
 
-<Layout title="Free Astro Components - Icon">
+<Layout title="Free Astro Components - Button">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Icon"
+        />
+        <Prose>
+          <Text>
+            component provides a consistent way to display icons throughout your
+            Astro projects. It includes a set of predefined icons that you can
+            style using CSS.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the icon component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here’s how you can use the icon component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text>
+            To display an icon, you must use a CSS class to define the icon's
+            size and color.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <IconAc icon="star" class="w-8 h-8 text-primary" />
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Text>
+            In this example, the <code>icon-class</code> should define the desired
+            size and color for the icon.
+          </Text>
+          <Heading level={3} text="Customization" />
+          <Text>
+            Since the icon component relies on CSS for styling, you can use any
+            CSS properties to style the icons. This includes size, color,
+            margin, etc. Here's an example of a CSS class for customization:
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <IconAc icon="star" class="w-6 h-6 text-primary" />
+                  <IconAc icon="star" class="w-8 h-8 text-primary" />
+                  <IconAc icon="star" class="w-10 h-10 text-primary" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={customizationCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Available Icons" />
+          <Text>
+            Below is a list of all available icons you can use with the icon
+            component:
+          </Text>
+          <ul class="flex flex-col gap-8">
+            {
+              iconsCategories.map((category) => {
+                const categoryIcons = icons.filter(
+                  (icon) => icon.category === category
+                )
+
+                return categoryIcons.length > 0 ? (
+                  <li class="flex flex-col gap-4">
+                    <Heading level={5} text={category} class="capitalize" />
+                    <ul class="icons-list">
+                      {categoryIcons.map((icon) => (
+                        <li>
+                          <IconCard>
+                            <IconAc
+                              icon={icon.name}
+                              class="w-8 h-8 text-primary"
+                            />
+                            <span class="text-neutral-500 text-sm">
+                              {icon.name}
+                            </span>
+                          </IconCard>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : null
+              })
+            }
+          </ul>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Labeling</strong>: Ensure each icon has an appropriate
+                label for screen readers. Use the <code>aria-label</code> attribute
+                to provide a description of the icon's purpose.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>
+
+<style>
+  .icons-list {
+    @apply grid gap-4;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+</style>

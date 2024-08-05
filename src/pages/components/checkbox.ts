@@ -60,7 +60,7 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the Checkbox element',
+      label: 'Any other props will be passed to the <code>checkbox</code> element',
     },
     {
       head: 'Default',

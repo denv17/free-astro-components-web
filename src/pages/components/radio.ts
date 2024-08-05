@@ -60,7 +60,7 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the Radio element',
+      label: 'Any other props will be passed to the <code>radio</code> element',
     },
     {
       head: 'Default',

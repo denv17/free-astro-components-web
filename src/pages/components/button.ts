@@ -179,7 +179,7 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the button element',
+      label: 'Any other props will be passed to the <code>button</code> element',
     },
     {
       head: 'Default',
