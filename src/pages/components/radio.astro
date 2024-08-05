@@ -1,12 +1,125 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
+import {
+  basicUsageCode,
+  statesCode,
+  importCode,
+  tableHead,
+  tableRows,
+} from './radio.ts'
+import { Radio as RadioAc } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Text from '../../components/Text.astro'
+import Table from '../../components/Table.astro'
 ---
 
-<Layout title="Free Astro Components - Radio">
+<Layout title="Free Astro Components - Button">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Radio"
+        />
+        <Prose>
+          <Text>
+            The radio component allows users to select one option from a set of
+            choices. It supports various configurations and customization
+            options.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the radio component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here’s how you can use the radio component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <RadioAc label="Radio" />
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="States" />
+          <Text>
+            The component supports different states to indicate whether it is
+            selected or unselected.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <RadioAc label="Radio unselected" />
+                  <RadioAc label="Radio selected" checked />
+                  <RadioAc label="Radio unselected disabled" disabled />
+                  <RadioAc label="Radio selected disabled" checked disabled />
+                  <RadioAc label="Radio error" error />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={statesCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure that the radio
+                button can be toggled using keyboard interactions (e.g., Arrow
+                keys for navigation and Space key for selection).
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use <code>aria-checked</code> to
+                indicate the state of the radio button and <code
+                  >aria-disabled</code
+                > for the disabled state.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Labeling</strong>: Ensure that each radio button has a
+                label associated with it for screen readers.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>

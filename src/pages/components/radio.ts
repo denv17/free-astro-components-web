@@ -1,25 +1,25 @@
 export const importCode = `
 ---
-import { Checkbox } from 'free-astro-components'
+import { Radio } from 'free-astro-components'
 ---
 `
 export const basicUsageCode = `
 ---
-import { Checkbox } from 'free-astro-components'
+import { Radio } from 'free-astro-components'
 ---
 
-<Checkbox label='Checkbox' />
+<Radio label='Radio' />
 `
 export const statesCode = `
 ---
-import { Checkbox } from 'free-astro-components'
+import { Radio } from 'free-astro-components'
 ---
 
-<Checkbox label="Checkbox unchecked" />
-<Checkbox label="Checkbox checked" checked />
-<Checkbox label="Checkbox unchecked disabled" disabled />
-<Checkbox label="Checkbox checked disabled" checked disabled />
-<Checkbox label="Checkbox error" error />
+<Radio label="Radio unselected" />
+<Radio label="Radio selected" checked />
+<Radio label="Radio unselected disabled" disabled />
+<Radio label="Radio selected disabled" checked disabled />
+<Radio label="Radio error" error />
 `
 
 export const tableHead = ['Attribute', 'Type', 'Description', 'Default']
@@ -28,7 +28,7 @@ export const tableRows = [
   [
     {head: 'Attribute', label:'label'},
     {head: 'Type', label:'<code>string</code>'},
-    {head: 'Description', label:'The text label associated with the checkbox.'},
+    {head: 'Description', label:'The text label associated with the Radio.'},
     {head: 'Default', label:'-'}
   ],
   [
@@ -60,7 +60,7 @@ export const tableRows = [
     },
     {
       head: 'Description',
-      label: 'Any other props will be passed to the Checkbox element',
+      label: 'Any other props will be passed to the Radio element',
     },
     {
       head: 'Default',
