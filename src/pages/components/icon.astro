@@ -1,6 +1,4 @@
 ---
-import { icons } from '../../data/icons.ts'
-import { iconsCategories } from '../../data/icons-categories.ts'
 import {
   basicUsageCode,
   customizationCode,
@@ -14,8 +12,8 @@ import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
 import Header from '../../components/Header.astro'
 import Heading from '../../components/Heading.astro'
-import IconCard from '../../components/IconCard.astro'
 import Layout from '../../layouts/Layout.astro'
+import Link from '../../components/Link.astro'
 import List from '../../components/List.astro'
 import ListItem from '../../components/ListItem.astro'
 import Preview from '../../components/Preview.astro'
@@ -42,9 +40,9 @@ import Text from '../../components/Text.astro'
         />
         <Prose>
           <Text>
-            component provides a consistent way to display icons throughout your
-            Astro projects. It includes a set of predefined icons that you can
-            style using CSS.
+            The icon component provides a consistent way to display icons
+            throughout your Astro projects. It includes a set of predefined
+            icons that you can style using CSS.
           </Text>
         </Prose>
         <Prose>
@@ -104,43 +102,6 @@ import Text from '../../components/Text.astro'
           <Table head={tableHead} rows={tableRows} />
         </Prose>
         <Prose>
-          <Heading level={2} text="Available Icons" />
-          <Text>
-            Below is a list of all available icons you can use with the icon
-            component:
-          </Text>
-          <ul class="flex flex-col gap-8">
-            {
-              iconsCategories.map((category) => {
-                const categoryIcons = icons.filter(
-                  (icon) => icon.category === category
-                )
-
-                return categoryIcons.length > 0 ? (
-                  <li class="flex flex-col gap-4">
-                    <Heading level={5} text={category} class="capitalize" />
-                    <ul class="icons-list">
-                      {categoryIcons.map((icon) => (
-                        <li>
-                          <IconCard>
-                            <IconAc
-                              icon={icon.name}
-                              class="w-8 h-8 text-primary"
-                            />
-                            <span class="text-neutral-500 text-sm">
-                              {icon.name}
-                            </span>
-                          </IconCard>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ) : null
-              })
-            }
-          </ul>
-        </Prose>
-        <Prose>
           <Heading level={2} text="Accessibility" />
           <List>
             <ListItem>
@@ -152,14 +113,17 @@ import Text from '../../components/Text.astro'
             </ListItem>
           </List>
         </Prose>
+        <Prose>
+          <Heading level={2} text="Available Icons" />
+          <Text>
+            To view the list of all available icons that you can use with this
+            component, please visit the <Link href="/resources/available-icons"
+              >Available Icons</Link
+            >. There, you'll find a complete list of icons and examples of how
+            to use them.
+          </Text>
+        </Prose>
       </Article>
     </section>
   </Content>
 </Layout>
-
-<style>
-  .icons-list {
-    @apply grid gap-4;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-</style>

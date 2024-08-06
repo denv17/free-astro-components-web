@@ -1,0 +1,117 @@
+---
+import { Icon as IconAc } from 'free-astro-components'
+import { icons } from '../../data/icons.ts'
+import { iconsCategories } from '../../data/icons-categories.ts'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import IconCard from '../../components/IconCard.astro'
+import Layout from '../../layouts/Layout.astro'
+import Link from '../../components/Link.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Text from '../../components/Text.astro'
+
+const exampleCode = `
+<Icon icon="star" class="custom-class" />
+`
+---
+
+<Layout title="Free Astro Components - Available Icons">
+  <Header />
+  <Sidebar />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Available Icons"
+        />
+        <Prose>
+          <Text>
+            Welcome to the icon library. Below, you'll find a list of all
+            available icons that you can use with our components. Each icon can
+            be selected by using its name in the <code>icon</code> attribute of the
+            component.
+          </Text>
+          <CodeBlock lang="astro" code={exampleCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Icon List" />
+          <ul class="flex flex-col gap-8">
+            {
+              iconsCategories.map((category) => {
+                const categoryIcons = icons.filter(
+                  (icon) => icon.category === category
+                )
+
+                return categoryIcons.length > 0 ? (
+                  <li class="flex flex-col gap-4">
+                    <Heading level={5} text={category} class="capitalize" />
+                    <ul class="icons-list">
+                      {categoryIcons.map((icon) => (
+                        <li>
+                          <IconCard>
+                            <IconAc
+                              icon={icon.name}
+                              class="w-8 h-8 text-primary"
+                            />
+                            <span class="text-neutral-500 text-sm">
+                              {icon.name}
+                            </span>
+                          </IconCard>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : null
+              })
+            }
+          </ul>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Using Icons" />
+          <Text>
+            To learn more about how to use these icons in your components,
+            including customization options, please refer to the <Link
+              href="/components/icon">Icon Component Documentation.</Link
+            >
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Note" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Icon Name</strong>: Use the <code>icon</code> attribute with
+                the icon name (e.g., <code>icon="star"</code>) to display the
+                desired icon.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Customization</strong>: ou can style the icons using CSS
+                classes, such as <code>custom-class</code>, to adjust size and
+                color.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
+
+  <style>
+    .icons-list {
+      @apply grid gap-4;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+  </style>
+</Layout>
