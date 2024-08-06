@@ -39,6 +39,17 @@ import { Textarea } from 'free-astro-components'
   readonly
 />
 `
+export const withIconCode = `
+---
+import { Textarea } from 'free-astro-components'
+---
+
+<Textarea
+  icon="star"
+  label="Textarea with icon"
+  placeholder="Enter your text..."
+/>
+`
 export const helperTextCode = `
 ---
 import { Textarea } from 'free-astro-components'
@@ -130,6 +141,25 @@ export const tableRows = [
     {
       head: 'Default',
       label: '<code>false</code>',
+    },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'icon',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label:
+        'The icon to display in the textarea field, on the right side. The icon can be selected from a list of available icons.',
+    },
+    {
+      head: 'Default',
+      label: '-',
     },
   ],
   [

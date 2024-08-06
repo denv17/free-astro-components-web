@@ -8,6 +8,7 @@ import {
   statusCode,
   tableHead,
   tableRows,
+  withIconCode,
 } from '../../data/textarea.ts'
 import { Textarea as TextareaAc } from 'free-astro-components'
 import Article from '../../components/Article.astro'
@@ -25,6 +26,7 @@ import Tab from '../../components/Tab.astro'
 import TabItem from '../../components/TabItem.astro'
 import Table from '../../components/Table.astro'
 import Text from '../../components/Text.astro'
+import Link from '../../components/Link.astro'
 ---
 
 <Layout title="Free Astro Components - Textarea">
@@ -125,6 +127,31 @@ import Text from '../../components/Text.astro'
             </TabItem>
             <TabItem>
               <CodeBlock lang="astro" code={readonlyCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="With Icon" />
+          <Text>
+            You can include an icon in the textarea field using the <code
+              >icon</code
+            > attribute. The icon will be displayed on the right side of the textarea.
+            The icon can be selected from a <Link href="/components/icon"
+              >list of available icons</Link
+            >.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    icon="star"
+                    label="Textarea with icon"
+                    placeholder="Enter your text..."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={withIconCode} />
             </TabItem>
           </Tab>
           <Heading level={3} text="Helper Text" />

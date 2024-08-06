@@ -1,12 +1,231 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
+import {
+  basicUsageCode,
+  disabledCode,
+  helperTextCode,
+  importCode,
+  statusCode,
+  tableHead,
+  tableRows,
+} from '../../data/select.ts'
+import { Select as SelectAc } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
 ---
 
 <Layout title="Free Astro Components - Select">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Select"
+        />
+        <Prose>
+          <Text>
+            The select component allows users to choose from a dropdown list of
+            options. It supports various configurations and customization
+            options, including disabled states, helper text, and custom styles.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the select component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here’s how you can use the select component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text>
+            To create a basic dropdown select field, use the following code:
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <SelectAc
+                    label="Select an option"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                      { value: '3', label: 'Option 3' },
+                    ]}
+                    placeholder="Choose an option"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Disabled" />
+          <Text>
+            To disable the select field, set the <code>disabled</code> prop to <code
+              >true</code
+            >.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <SelectAc
+                    label="Disabled Select"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                      { value: '3', label: 'Option 3' },
+                    ]}
+                    disabled
+                    placeholder="Cannot select"
+                  />
+                  <SelectAc
+                    label="Disabled Select"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2', selected: true },
+                      { value: '3', label: 'Option 3' },
+                    ]}
+                    disabled
+                    placeholder="Cannot select"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={disabledCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Helper Text" />
+          <Text>
+            You can provide additional information using the <code
+              >helperText</code
+            > prop.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <SelectAc
+                    label="Select with Helper Text"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                      { value: '3', label: 'Option 3' },
+                    ]}
+                    helperText="Choose an option from the list."
+                    placeholder="Choose an option"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={helperTextCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Status" />
+          <Text>
+            To indicate a specific state of the select field, use the <code
+              >status</code
+            > attribute. Possible values are <code>default</code>, <code
+              >success</code
+            >, and <code>error</code>. You can use <code>helperText</code> to provide
+            additional context.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <SelectAc
+                    label="Default State"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                    ]}
+                    status="default"
+                    placeholder="Select an option"
+                  />
+                  <SelectAc
+                    label="Success State"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2', selected: true },
+                    ]}
+                    status="success"
+                    helperText="Selection successful."
+                    placeholder="Select an option"
+                  />
+                  <SelectAc
+                    label="Error State"
+                    options={[
+                      { value: '1', label: 'Option 1' },
+                      { value: '2', label: 'Option 2' },
+                    ]}
+                    status="error"
+                    helperText="There was an error with your selection."
+                    placeholder="Select an option"
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={statusCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure that users can
+                navigate and interact with the select options using the
+                keyboard.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use appropriate ARIA
+                attributes such as <code>aria-expanded</code> to indicate the dropdown
+                state and <code>aria-selected</code> for selected options.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Labeling</strong>: Provide clear labels for each select
+                field to assist screen reader users.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>

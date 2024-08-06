@@ -71,6 +71,16 @@ import { Input } from 'free-astro-components'
   helperText="This is some helper text."
 />
 `
+export const withIconCode = `
+---
+import { Input } from 'free-astro-components'
+---
+<Input
+  icon="star"
+  label="Input with Icon"
+  placeholder="Enter text..."
+/>
+`
 export const statusCode = `
 ---
 import { Input } from 'free-astro-components'
@@ -158,6 +168,25 @@ export const tableRows = [
     {
       head: 'Default',
       label: '<code>false</code>',
+    },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'icon',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label:
+        'The icon to display in the input field, on the right side. The icon can be selected from a list of available icons.',
+    },
+    {
+      head: 'Default',
+      label: '-',
     },
   ],
   [
