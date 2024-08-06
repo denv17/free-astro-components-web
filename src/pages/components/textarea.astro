@@ -1,12 +1,223 @@
 ---
-import Header from '../../components/Header.astro'
-import Layout from '../../layouts/Layout.astro'
-import Sidebar from '../../layouts/Sidebar.astro'
+import {
+  basicUsageCode,
+  disabledCode,
+  helperTextCode,
+  importCode,
+  readonlyCode,
+  statusCode,
+  tableHead,
+  tableRows,
+} from '../../data/textarea.ts'
+import { Textarea as TextareaAc } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Tab from '../../components/Tab.astro'
+import TabItem from '../../components/TabItem.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
 ---
 
 <Layout title="Free Astro Components - Textarea">
   <Header />
   <Sidebar />
-  <Content />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Textarea"
+        />
+        <Prose>
+          <Text>
+            The textarea component provides a multi-line text input field,
+            allowing users to enter longer blocks of text. It supports various
+            configurations and states, similar to the input component.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the textarea component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here's how you can use the textarea component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text>
+            To create a basic textarea field, use the following code:
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    label="Basic Textarea"
+                    placeholder="Enter your text..."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Disabled" />
+          <Text>
+            To disable the textarea field, set the <code>disabled</code> prop to
+            <code>true</code>.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    label="Disabled Textarea"
+                    placeholder="Disabled Textarea"
+                    disabled
+                  />
+                  <TextareaAc
+                    label="Disabled Textarea"
+                    value="Disabled Textarea"
+                    placeholder="Disabled Textarea"
+                    disabled
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={disabledCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Readonly" />
+          <Text>
+            To make the textarea field read-only, set the <code>readonly</code> prop
+            to <code>true</code>.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    label="Readonly Textarea"
+                    value="This textarea is read-only"
+                    placeholder="This textarea is read-only"
+                    readonly
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={readonlyCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Helper Text" />
+          <Text>
+            You can provide additional information using the <code
+              >helperText</code
+            > prop.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    label="Textarea with Helper Text"
+                    placeholder="Enter your text..."
+                    helperText="This is some helper text."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={helperTextCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Status" />
+          <Text>
+            To indicate a specific state of the textarea field, use the <code
+              >status</code
+            > attribute. Possible values are <code>default</code>, <code
+              >success</code
+            >, and <code>error</code>. You can use <code>helperText</code> to provide
+            additional context.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <TextareaAc
+                    label="Default State"
+                    placeholder="Default state"
+                    status="default"
+                  />
+                  <TextareaAc
+                    label="Success State"
+                    value="Success state"
+                    placeholder="Success state"
+                    status="success"
+                    helperText="This is a success message."
+                  />
+                  <TextareaAc
+                    label="Error State"
+                    placeholder="Error state"
+                    status="error"
+                    helperText="This is an error message."
+                  />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={statusCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure that the input
+                field can be focused and used with the keyboard.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use appropriate ARIA
+                attributes to describe the state of the input, such as <code
+                  >aria-invalid</code
+                > for error states.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Labeling</strong>: Provide clear labels for each input
+                field to assist screen reader users.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
 </Layout>
