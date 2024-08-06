@@ -1,0 +1,118 @@
+---
+import {
+  basicUsageCode,
+  importCode,
+  tableTabHead,
+  tableTabItemHead,
+  tableTabRows,
+  tableTabItemRows,
+} from '../../data/tab.ts'
+import { Icon as IconAc, Tab as TabAc, TabItem } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import Link from '../../components/Link.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
+---
+
+<Layout title="Free Astro Components - Tab">
+  <Header />
+  <Sidebar />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Tab"
+        />
+        <Prose>
+          <Text>
+            The Tab component provides a way to organize content into different
+            sections, each accessible through a tab. It includes the TabItem
+            subcomponent for defining the content of each tab.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the Tab component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here’s how you can use the Tab component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text>
+            The Tab component requires a <code>tabs</code> attribute to define the
+            tab labels and their active state. Each tab is associated with a corresponding
+            <code>TabItem</code> component.
+          </Text>
+          <TabAc tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <TabAc
+                  tabs={[{ label: 'Tab 1', active: true }, { label: 'Tab 2' }]}
+                >
+                  <TabItem active>Content for Tab 1</TabItem>
+                  <TabItem>Content for Tab 2</TabItem>
+                </TabAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </TabAc>
+          <Text>
+            In the above example, <code>Tab 1</code> is marked as active by setting
+            <code>active: true</code> in the tabs array, and the corresponding <code
+              >TabItem</code
+            > also has the
+            <code>active</code> attribute.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Heading level={4} text="Tab" />
+          <Table head={tableTabHead} rows={tableTabRows} />
+          <Heading level={4} text="TabItem" />
+          <Table head={tableTabItemHead} rows={tableTabItemRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Navigation</strong>: Ensure that the tab list
+                is navigable using the keyboard. Users should be able to move
+                focus between tabs using the arrow keys.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>ARIA Attributes</strong>: Use <code>aria-controls</code>
+                to link each tab with its corresponding panel and <code
+                  >aria-selected</code
+                > to indicate the active tab.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
+</Layout>
