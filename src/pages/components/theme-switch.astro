@@ -5,7 +5,7 @@ import {
   tableHead,
   tableRows,
 } from '../../data/theme-switch.ts'
-import { Tab, TabItem, ThemeSwitch } from 'free-astro-components'
+import { Tab, TabItem, ThemeSwitch as ThemeSwitchAc } from 'free-astro-components'
 import Article from '../../components/Article.astro'
 import CodeBlock from '../../components/CodeBlock.astro'
 import Content from '../../layouts/Content.astro'
@@ -19,7 +19,6 @@ import Prose from '../../components/Prose.astro'
 import Sidebar from '../../layouts/Sidebar.astro'
 import Table from '../../components/Table.astro'
 import Text from '../../components/Text.astro'
-import Link from '../../components/Link.astro'
 ---
 
 <Layout title="Free Astro Components - ThemeSwitch">
@@ -61,7 +60,7 @@ import Link from '../../components/Link.astro'
             <TabItem active>
               <Preview>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <ThemeSwitch label="Toggle theme" />
+                  <ThemeSwitchAc label="Toggle theme" />
                 </div>
               </Preview>
             </TabItem>
