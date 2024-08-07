@@ -1,0 +1,92 @@
+---
+import {
+  basicUsageCode,
+  importCode,
+  tableHead,
+  tableRows,
+} from '../../data/theme-switch.ts'
+import { Tab, TabItem, ThemeSwitch } from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
+import Link from '../../components/Link.astro'
+---
+
+<Layout title="Free Astro Components - ThemeSwitch">
+  <Header />
+  <Sidebar />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="ThemeSwitch"
+        />
+        <Prose>
+          <Text>
+            The ThemeSwitch component allows users to toggle between light and
+            dark themes in your Astro project.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the ThemeSwitch component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            Here's how you can use the textarea component in your Astro project:
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Text>
+            To create a basic textarea field, use the following code:
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <ThemeSwitch label="Toggle theme" />
+                </div>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Table head={tableHead} rows={tableRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Accessibility</strong>: Ensure the ThemeSwitch
+                component can be toggled using keyboard interactions (e.g.,
+                Enter key).
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
+</Layout>

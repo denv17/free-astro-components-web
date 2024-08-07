@@ -36,6 +36,24 @@ export const tableTabRows = [
         "<code>[{ label: 'tab 1', active: true }, { label: 'tab 2' }]</code>",
     },
   ],
+  [
+    {
+      head: 'Attribute',
+      label: 'class',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label: 'CSS class for custom styling.',
+    },
+    {
+      head: 'Default',
+      label: '-',
+    },
+  ],
 ]
 
 export const tableTabItemHead = ['Attribute', 'Type', 'Description', 'Default']
@@ -46,5 +64,23 @@ export const tableTabItemRows = [
     { head: 'Type', label: '<code>boolean</code>' },
     { head: 'Description', label: 'Indicates whether the tab is active.' },
     { head: 'Default', label: '<code>false</code>' },
+  ],
+  [
+    {
+      head: 'Attribute',
+      label: 'class',
+    },
+    {
+      head: 'Type',
+      label: '<code>string</code>',
+    },
+    {
+      head: 'Description',
+      label: 'CSS class for custom styling.',
+    },
+    {
+      head: 'Default',
+      label: '-',
+    },
   ],
 ]
