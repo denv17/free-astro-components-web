@@ -1,0 +1,267 @@
+---
+import {
+  basicUsageCode,
+  importCode,
+  sizesCode,
+  overflowScrollCode,
+  customVariablesCode,
+  customStylesCode,
+  tableHead,
+  tableRows,
+  tableHeaderRows,
+  tableBodyRows,
+  tableFooterRows,
+} from '../../data/modal.ts'
+import {
+  Tab,
+  TabItem,
+  Modal as ModalAc,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  Button,
+} from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Table from '../../components/Table.astro'
+import Text from '../../components/Text.astro'
+
+const modalSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', 'full']
+---
+
+<Layout title="Free Astro Components - Modal">
+  <Header />
+  <Sidebar />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Modal"
+        />
+        <Prose>
+          <Text>
+            The Modal component provides a flexible way to display content in a
+            dialog. It supports various sizes and customizable content through
+            its child components.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the Modal component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            To use the Modal, you need to pass an <code>id</code> to the component
+            and include the <code>data-modal-trigger</code> attribute with the same
+            id in the trigger element (e.g., a Button).
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex flex-wrap gap-4">
+                  <Button label="Open Modal" data-modal-trigger="modal-id" />
+                </div>
+                <ModalAc id="modal-id">
+                  <ModalHeader>
+                    <Heading level={4} text="Modal Title" />
+                  </ModalHeader>
+                  <ModalBody>
+                    <Text>
+                      This is the modal body. You can add any content here.
+                    </Text>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button label="Close" data-modal-close />
+                  </ModalFooter>
+                </ModalAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Sizes" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex flex-wrap gap-4">
+                  {
+                    modalSizes.map((size) => (
+                      <Button
+                        label={`Open ${size}`}
+                        data-modal-trigger={`modal-${size}`}
+                      />
+                    ))
+                  }
+                </div>
+
+                {
+                  modalSizes.map((size) => (
+                    <ModalAc id={`modal-${size}`} size={size}>
+                      <ModalHeader>
+                        <Heading level={4} text={`Modal ${size}`} />
+                      </ModalHeader>
+                      <ModalBody>
+                        <Text>
+                          This is the modal body. You can add any content here.
+                        </Text>
+                      </ModalBody>
+                      <ModalFooter>
+                        <Button label="Close" data-modal-close />
+                      </ModalFooter>
+                    </ModalAc>
+                  ))
+                }
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={sizesCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Overflow scroll" />
+          <Text>
+            The <code>ModalBody</code> component is prepared to handle long content.
+            It includes an overflow scroll to ensure that content can be scrolled
+            within the modal if it exceeds the available space.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex flex-wrap gap-4">
+                  <Button
+                    label="Open Modal"
+                    data-modal-trigger="modal-overflow"
+                  />
+                </div>
+
+                <ModalAc id="modal-overflow">
+                  <ModalHeader>
+                    <Heading level={4} text="Modal overflow" />
+                  </ModalHeader>
+                  <ModalBody>
+                    <Prose>
+                      {
+                        Array.from({ length: 10 }).map((_) => (
+                          <Text>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Obcaecati tenetur voluptatibus vero similique
+                            alias ab odio commodi sint maiores facere voluptate
+                            nostrum atque magni, delectus perferendis laborum
+                            minima saepe asperiores.
+                          </Text>
+                        ))
+                      }
+                    </Prose>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button label="Close" data-modal-close />
+                  </ModalFooter>
+                </ModalAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={overflowScrollCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Custom Styles" />
+          <Text>
+            The Modal component includes several customizable CSS variables,
+            allowing you to tailor its appearance to fit your design needs:
+          </Text>
+          <Heading level={3} text="Available Variables" />
+          <CodeBlock lang="css" code={customVariablesCode} />
+          <Heading level={3} text="Example Customization" />
+          <Text>
+            To customize the Modal styles, you can override these variables in
+            your CSS:
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <div class="flex items-center flex-wrap gap-4">
+                  <Button
+                    label="Open Modal"
+                    data-modal-trigger="custom-modal"
+                  />
+                </div>
+                <ModalAc id="custom-modal" class="custom-modal">
+                  <ModalHeader>
+                    <Heading level={4} text="Custom Modal" />
+                  </ModalHeader>
+                  <ModalBody>
+                    <Text>
+                      This is the modal body. You can add any content here.
+                    </Text>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button label="Close" data-modal-close />
+                  </ModalFooter>
+                </ModalAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={customStylesCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Heading level={4} text="Modal" />
+          <Table head={tableHead} rows={tableRows} />
+          <Heading level={4} text="ModalHeader" />
+          <Table head={tableHead} rows={tableHeaderRows} />
+          <Heading level={4} text="ModalBody" />
+          <Table head={tableHead} rows={tableBodyRows} />
+          <Heading level={4} text="ModalFooter" />
+          <Table head={tableHead} rows={tableFooterRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Focus Management</strong>: Ensure that focus is trapped
+                within the modal when it is open, and returned to the trigger
+                element when closed.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Interactions</strong>: Allow users to close the
+                modal with the <code>Esc</code> key and navigate interactive elements
+                within the modal using the <code>Tab</code> key.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
+</Layout>
+
+<style is:global>
+  .custom-modal {
+    --ac-modal-border-radius: 0;
+    --ac-modal-backdrop-filter: grayscale(100%);
+  }
+</style>

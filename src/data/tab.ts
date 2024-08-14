@@ -37,6 +37,18 @@ export const tableTabRows = [
     },
   ],
   [
+    { head: 'Attribute', label: 'children' },
+    {
+      head: 'Type',
+      label: '<code>TabItem</code>',
+    },
+    {
+      head: 'Description',
+      label: 'The <code>TabItem</code> components that correspond to each tab.',
+    },
+    { head: 'Default', label: '-' },
+  ],
+  [
     {
       head: 'Attribute',
       label: 'class',
@@ -64,6 +76,18 @@ export const tableTabItemRows = [
     { head: 'Type', label: '<code>boolean</code>' },
     { head: 'Description', label: 'Indicates whether the tab is active.' },
     { head: 'Default', label: '<code>false</code>' },
+  ],
+  [
+    { head: 'Attribute', label: 'children' },
+    {
+      head: 'Type',
+      label: '<code>any</code>',
+    },
+    {
+      head: 'Description',
+      label: 'The content to display when the tab is active.',
+    },
+    { head: 'Default', label: '-' },
   ],
   [
     {
