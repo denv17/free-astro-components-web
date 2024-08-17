@@ -25,6 +25,45 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-c
 </Modal>
 `
 
+export const openModalExampleCode = `
+---
+import { Modal, ModalHeader, ModalBody, ModalFooter, Input, Button } from 'free-astro-components'
+---
+
+<form id="example-form">
+  <Input label="Name" placeholder="Enter your name" required />
+  <Button type="submit" label="Submit" />
+</form>
+
+<Modal id="modal-example">
+  <ModalHeader>
+    <h3>Form Submitted Successfully</h3>
+  </ModalHeader>
+  <ModalBody>
+    <p>Thank you for submitting the form. This modal will close automatically after a few seconds.</p>
+  </ModalBody>
+  <ModalFooter>
+    <Button label="Close now" data-modal-close>
+  </ModalFooter>
+</Modal>
+
+<script>
+  import { openModal, closeModal } from 'free-astro-components';
+
+  const form = document.querySelector('#example-form');
+  const modal = document.querySelector('#modal-example');
+
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    openModal(modal);
+
+    setTimeout(() => {
+      closeModal(modal)
+    }, 3000);
+  });
+</script>
+`
+
 export const sizesCode = `
 ---
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'free-astro-components'

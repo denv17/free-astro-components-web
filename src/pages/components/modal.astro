@@ -1,6 +1,7 @@
 ---
 import {
   basicUsageCode,
+  openModalExampleCode,
   importCode,
   sizesCode,
   overflowScrollCode,
@@ -20,6 +21,7 @@ import {
   ModalBody,
   ModalFooter,
   Button,
+  Input,
 } from 'free-astro-components'
 import Article from '../../components/Article.astro'
 import CodeBlock from '../../components/CodeBlock.astro'
@@ -98,6 +100,53 @@ const modalSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', 'full']
               <CodeBlock lang="astro" code={basicUsageCode} />
             </TabItem>
           </Tab>
+          <Heading level={3} text="Programmatic Control" />
+          <Text>
+            You can control the modal programmatically using the <code
+              >openModal</code
+            > and <code>closeModal</code> functions. Below is an example that combines
+            both:
+          </Text>
+          <Text>
+            <strong
+              >Example: Open Modal on Form Submit and Close Automatically</strong
+            >
+          </Text>
+          <Text>
+            This example demonstrates how to open a modal programmatically when
+            a form is submitted and then automatically close it after a few
+            seconds.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <form class="flex flex-col gap-6" id="example-form">
+                  <Input label="Name" placeholder="Enter your name" required />
+                  <div>
+                    <Button type="submit" label="Submit" />
+                  </div>
+                </form>
+                <ModalAc id="modal-example">
+                  <ModalHeader>
+                    <Heading level={4} text="Form Submitted Successfully" />
+                  </ModalHeader>
+                  <ModalBody>
+                    <Text>
+                      Thank you for submitting the form. This modal will close
+                      automatically after a few seconds.
+                    </Text>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button label="Close now" data-modal-close />
+                  </ModalFooter>
+                </ModalAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={openModalExampleCode} />
+            </TabItem>
+          </Tab>
+
           <Heading level={3} text="Sizes" />
           <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
             <TabItem active>
@@ -265,3 +314,22 @@ const modalSizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', 'full']
     --ac-modal-backdrop-filter: grayscale(100%);
   }
 </style>
+
+<script>
+  import { DOMLoaded } from '../../ts/utils'
+  import { openModal, closeModal } from 'free-astro-components'
+
+  DOMLoaded(() => {
+    const form = document.querySelector('#example-form')
+    const modal = document.querySelector('#modal-example')
+
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault()
+      openModal(modal)
+
+      setTimeout(() => {
+        closeModal(modal)
+      }, 3000)
+    })
+  })
+</script>
