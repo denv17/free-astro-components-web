@@ -1,4 +1,3 @@
-
 # Free Astro Components
 
 Welcome to the **Free Astro Components** repository! This library offers a collection of free, customizable components designed specifically for [Astro.js](https://astro.build/).
@@ -62,3 +61,9 @@ Contributions are welcome! If you have suggestions or find bugs, please [open an
 ## License
 
 This project is licensed under the MIT License.
+
+## Thanks
+
+If you find this project helpful and would like to support its development, consider buying me a coffee:
+
+[<img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" >](https://buymeacoffee.com/denv)
