@@ -27,6 +27,9 @@ The library currently includes the following components:
   - **ModalHeader**: The header section of the modal, usually containing a title and a close button.
   - **ModalBody**: The main content area of the modal.
   - **ModalFooter**: The footer section of the modal, typically containing action buttons.
+- **Accordion**
+  - A component for creating collapsible content sections.
+  - **AccordionItem**: A subcomponent for individual accordion items.
 
 You can find the code for these components in the [components directory](https://github.com/denv17/free-astro-components/tree/main/src/components) of the GitHub repository.
 

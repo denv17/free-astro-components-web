@@ -1,0 +1,410 @@
+---
+import {
+  basicUsageCode,
+  customVariablesCode,
+  variantLightCode,
+  variantShadowCode,
+  variantBorderedCode,
+  variantSplittedCode,
+  openCode,
+  interactionCode,
+  importCode,
+  tableHead,
+  tableRows,
+  tableItemRows,
+} from '../../data/accordion.ts'
+import {
+  Accordion as AccordionAc,
+  Tab,
+  TabItem,
+  AccordionItem,
+} from 'free-astro-components'
+import Article from '../../components/Article.astro'
+import CodeBlock from '../../components/CodeBlock.astro'
+import Content from '../../layouts/Content.astro'
+import Header from '../../components/Header.astro'
+import Heading from '../../components/Heading.astro'
+import Layout from '../../layouts/Layout.astro'
+import List from '../../components/List.astro'
+import ListItem from '../../components/ListItem.astro'
+import Preview from '../../components/Preview.astro'
+import Prose from '../../components/Prose.astro'
+import Sidebar from '../../layouts/Sidebar.astro'
+import Text from '../../components/Text.astro'
+import Table from '../../components/Table.astro'
+---
+
+<Layout title="Free Astro Components - Accordion">
+  <Header />
+  <Sidebar />
+  <Content>
+    <section>
+      <Article>
+        <Heading
+          slot="header"
+          level={1}
+          gradient
+          class="inline-block"
+          text="Accordion"
+        />
+        <Prose>
+          <Text>
+            The Accordion component is a flexible container that organizes
+            expandable content items. It can be used to group multiple
+            AccordionItem components and offers various style variants.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Import" />
+          <Text>
+            To use the Accordion component, first import it into your project:
+          </Text>
+          <CodeBlock lang="astro" code={importCode} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Usage" />
+          <Text>
+            The Accordion component consists of an Accordion container and
+            AccordionItem children. The AccordionItem component is used to
+            define each expandable content item within the Accordion container.
+          </Text>
+          <Heading level={3} text="Basic Usage" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc>
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={basicUsageCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Variants" />
+          <Text>
+            Accordion has 4 variants: <code>light</code>, <code>shadow</code>, <code
+              >bordered</code
+            > and <code>splitted</code>.
+          </Text>
+          <Heading level={5} text="Light variant" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc variant="light">
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={variantLightCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={5} text="Shadow variant" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc variant="shadow">
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={variantShadowCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={5} text="Bordered variant" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc variant="bordered">
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={variantBorderedCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={5} text="Splitted variant" />
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc variant="splitted">
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={variantSplittedCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Default expanded" />
+          <Text>
+            You can set the default expanded item by passing the <code
+              >open</code
+            > prop to the AccordionItem component.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc>
+                  <AccordionItem title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 2" open>
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={openCode} />
+            </TabItem>
+          </Tab>
+          <Heading level={3} text="Interaction between AccordionItems" />
+          <Text>
+            The <code>name</code> attribute in the <code>AccordionItem</code> component
+            allows the items to interact with each other. For example, if multiple
+            <code>AccordionItem</code>
+            components share the same <code>name</code> value, opening one will automatically
+            close the others, creating mutually exclusive behavior.
+          </Text>
+          <Tab tabs={[{ label: 'Preview', active: true }, { label: 'Code' }]}>
+            <TabItem active>
+              <Preview>
+                <AccordionAc>
+                  <AccordionItem name="accordion-example" title="Accordion 1">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem name="accordion-example" title="Accordion 2">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                  <AccordionItem name="accordion-example" title="Accordion 3">
+                    <Text>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Quidem asperiores, ut, atque non inventore, fugit sed
+                      totam explicabo quisquam itaque omnis eius eveniet rem vel
+                      pariatur. Alias, expedita ratione! Animi.
+                    </Text>
+                  </AccordionItem>
+                </AccordionAc>
+              </Preview>
+            </TabItem>
+            <TabItem>
+              <CodeBlock lang="astro" code={interactionCode} />
+            </TabItem>
+          </Tab>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Custom Styles" />
+          <Text>
+            You can customize the styles of both components using CSS variables
+            defined within the component. These variables include:
+          </Text>
+          <Heading level={3} text="Available Variables" />
+          <CodeBlock lang="css" code={customVariablesCode} />
+          <Text>
+            These styles allow you to adapt the appearance of the accordion and
+            its items to suit your project's needs.
+          </Text>
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Props" />
+          <Heading level={3} text="Accordion" />
+          <Table head={tableHead} rows={tableRows} />
+          <Heading level={3} text="AccordionItem" />
+          <Table head={tableHead} rows={tableItemRows} />
+        </Prose>
+        <Prose>
+          <Heading level={2} text="Accessibility" />
+          <List>
+            <ListItem>
+              <Text>
+                <strong>Keyboard Navigation</strong>: Ensure that users can
+                navigate the accordion using the keyboard. The <code
+                  >summary</code
+                > element should be focusable, and pressing the <code
+                  >Enter</code
+                > or <code>Space</code> key should toggle the expanded state of the
+                <code>AccordionItem</code>.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Focus Management</strong>: When an accordion item is
+                expanded, focus should be managed to ensure that the content
+                inside the <code>AccordionItem</code> is accessible. Ensure that
+                tabbing through the accordion leads to expected behavior.
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text>
+                <strong>Semantic HTML</strong>: The use of <code>details</code>
+                and <code>summary</code>
+                elements provides inherent accessibility benefits, as these elements
+                are recognized by screen readers and provide the expected behavior.
+              </Text>
+            </ListItem>
+          </List>
+        </Prose>
+      </Article>
+    </section>
+  </Content>
+</Layout>
+
+<style>
+  .custom-button {
+    --ac-btn-border-radius: 999px;
+    --ac-btn-font-weight: 600;
+    border-width: 0;
+    background-image: linear-gradient(
+      90deg,
+      rgb(var(--ac-primary)) 0%,
+      rgb(var(--ac-secondary)) 100%
+    );
+  }
+</style>

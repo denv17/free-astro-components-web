@@ -202,7 +202,8 @@ export const tableRows = [
     { head: 'Attribute', label: 'children' },
     {
       head: 'Type',
-      label: '<code>ModalHeader | ModalBody | ModalFooter</code>',
+      label:
+        '<code>ModalHeader | ModalBody | ModalFooter | [ModalHeader, ModalBody, ModalFooter]</code>',
     },
     {
       head: 'Description',

@@ -40,7 +40,7 @@ export const tableTabRows = [
     { head: 'Attribute', label: 'children' },
     {
       head: 'Type',
-      label: '<code>TabItem</code>',
+      label: '<code>TabItem | TabItem[]</code>',
     },
     {
       head: 'Description',

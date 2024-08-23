@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "astro-expressive-code": "^0.35.5",
-    "free-astro-components": "^1.0.11",
+    "free-astro-components": "^1.1.1",
     "prettier": "^3.3.3"
   }
 }
