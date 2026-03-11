@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
-import vercel from '@astrojs/vercel/serverless'
+import vercel from '@astrojs/vercel'
 import astroExpressiveCode from 'astro-expressive-code'
 
 // https://astro.build/config
